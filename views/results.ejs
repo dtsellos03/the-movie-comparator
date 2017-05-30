@@ -1,6 +1,28 @@
 <% include partials/header %>
 
 
+<div class="ui statistics">
+  <div class="statistic">
+    <div class="value">
+      <i class="film icon"></i> 672
+    </div>
+    <div class="label">
+      Films
+    </div>
+  </div>
+  <div class="statistic">
+    <div class="value">
+      <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
+      42,876
+    </div>
+    <div class="label">
+      hours
+    </div>
+  </div>
+</div>
+
+
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
@@ -33,8 +55,14 @@
         var data = google.visualization.arrayToDataTable(array2);
 
         var options = {
-          title: 'Lengths of dinosaurs, in meters',
+          title: 'Histogram of your ratings',
           legend: { position: 'none' },
+                    histogram: {
+      bucketSize: 1,
+      maxNumBuckets: 10,
+      minValue: 1,
+      maxValue: 10
+    }
         };
 
         var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
@@ -49,11 +77,11 @@
       
     </script>
 
-<div class="container">
+<div class="ui page grid">
 <div class="row">
-  <div class="col-lg-4 well">
+  <div class="ui raised very padded text container segment">
       <h1>Ratings</h1>
-   <div id="piechart" style="width: 50%;"></div>KKK
+   <div id="piechart" style="width: 50%;"></div>
   </div>  
   
   <div class="col-lg-4 well">
@@ -78,20 +106,17 @@
 
 
 
+
 </div>
-<div class="col-lg-4 well">
+<div class="ui raised very padded text container segment">
     <h1>Polarizing</h1>
 
-<div id="chart_div" style="width: 300px; height: 300px;"></div>
+<div id="chart_div" style="width: 500px; height: 300px;"></div>
 
 
 </div>
-</div>
-<div class="row">
-    <div class="col-lg-12 well">
 
-        <div class="row">
-            <div class="col">
+
                 <h1>Histogram</h1>
                 
                 
@@ -99,7 +124,7 @@
                 
                 
 <h4>You loved, critics hated</h4>
-<table class="table" style="width: 40%;">
+<table class="ui celled table" style="width: 40%;">
     <thead>
 
         <tr>
@@ -133,7 +158,7 @@
               
                 
 <h4>You hated, critics loved</h4>
-<table class="table" style="width: 40%;">
+<table class="ui celled table" style="width: 40%;">
     <thead>
 
         <tr>
@@ -167,7 +192,7 @@
               
                 
 <h4>You loved,IMDb hated</h4>
-<table class="table" style="width: 40%;">
+<table class="ui celled table" style="width: 40%;">
     <thead>
 
         <tr>
@@ -201,7 +226,7 @@
               
                 
 <h4>You hated, IMDb loved</h4>
-<table class="table" style="width: 40%;">
+<table class="ui celled table" style="width: 40%;">
     <thead>
 
         <tr>

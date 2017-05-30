@@ -25,6 +25,14 @@ var upload = multer({ storage: storage })
 
 var Processer = require ("./processing.js")
 
+var ActorsAnalysis = require('./processing_functions/actorsanalysis.js');
+var GenreAnalysis = require('./processing_functions/genreanalysis.js');
+var HistogramAnalysis = require('./processing_functions/histogramanalysis.js');
+var PolarizingAnalysis = require('./processing_functions/polarizinganalysis.js');
+var RatingsAnalysis = require('./processing_functions/ratingsanalysis.js');
+
+
+
 
 app.use(bodyParser.json());
 
@@ -32,21 +40,19 @@ app.set("view engine", "ejs");
 
 
 app.get("/home", function(req, res){
-    res.render("Mixes");
+    res.render("landing");
 });
 
 app.get("/", function(req, res){
-    res.render("Mixes");
+    res.render("landing");
 });
 
-app.get("/resuts", function(req, res){
-    res.render("results");
-});
 
     
 
 function Middleware(filepath, res){
     var fullpath = "uploads/"+filepath
+    console.time('parse csv')
     var writeStream = fs.createWriteStream('newtest.json');
     const csvFilePath = fullpath
     const csv = require('csvtojson')
@@ -55,17 +61,18 @@ function Middleware(filepath, res){
       var file = 'newtest.json'
       var start = Date.now();
       var answers = JSON.parse(fs.readFileSync(file, 'utf8'))
-  
+      console.timeEnd('parse csv')
       fs.readFile(file, handleFile)
       
-      // Write the callback function
       
   function handleFile(err, data) {
       if (err) throw err
+      
       var obj = JSON.parse(data);
       var movieLength = obj.length;
       //console.log(movieLength + "is" )
       var count = 0;
+      console.time('API call')
        async.forEachOfLimit(obj, 20, function(value, key, callback) {
               //console.log("Position is "+obj[key].position)
               var url = 'http://www.omdbapi.com/?i=' + obj[key].const+'&apikey=9849809a';
@@ -80,34 +87,53 @@ function Middleware(filepath, res){
                           movie["Actors"] = JSON.parse(body)["Actors"];
                           movie["Rated"] = JSON.parse(body)["Rated"]
                           count++
-                          if (JSON.parse(body).Ratings.length == 3) {
-                              movie['Metacritic'] = JSON.parse(body).Ratings[2].Value
-                          }
+                          console.time('Each object')
+                          JSON.parse(body).Ratings.forEach(function(element){
+                               if (element.Source === 'Metacritic'){
+                                   movie['Metacritic'] = element.Value
+                                   //console.log(movie.Title)
+                                   //console.log(element.Value)
+                               }
+                          })
+                             
+                         
+                         
                   //    }
 
-
+                    console.timeEnd('Each object')
                   }
                   callback();
-                  console.log(count)
+                  //console.log(count)
               });
 
           }, 
           function(err) {
+              console.timeEnd('API call')
              // console.log("DONE!");
-             console.log(count)
+             //console.log(count)
               //console.log(obj[32]);
               //console.log("DONE!");
-            //console.log(obj)
+            // console.log(obj)
              // console.log("END OF ACTORS")
             //  var Actor =  Processer.ActorsAnalysis(obj)
              // console.log(Actor)
-                //var Actors = Processer.ActorsAnalysis(obj);
-                //console.log("PROCESSING")
-                var Genre = Processer.GenreAnalysis(obj);
-                var Ratings = Processer.RatingsAnalysis(obj);
-                var Polarizing = Processer.PolarizingAnalysis(obj);
-                var Histogram = Processer.HistogramAnalysis(obj);
+                console.time('actor analysis')
+                var Actors = ActorsAnalysis(obj);
+                console.timeEnd('actor analysis')
+                console.time('genre analysis')
+                var Genre = GenreAnalysis(obj);
+                console.timeEnd('genre analysis')
+                console.time('ratings analysis')
+                var Ratings = RatingsAnalysis(obj);
+                console.timeEnd('ratings analysis')
+                console.time('polar analysis')
+                var Polarizing = PolarizingAnalysis(obj);
+                console.timeEnd('polar analysis')
+                console.time('histo analysis')
+                var Histogram = HistogramAnalysis(obj);
+                console.timeEnd('histo analysis')
                    var ReturnObj = {
+                  Actors: Actors,
                   Genre: Genre,
                   Ratings: Ratings,
                    Polarizing: Polarizing,

@@ -1,9 +1,168 @@
 <% include partials/header %>
 
 
-<h1> CAMPS</h1>
+   <title>Movie Ratings Comparator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+        
+        <style>
+        
+.ui.file.input input[type="file"] {
+    display: none;
+}
 
-<a href="/Mixes">View all Mixes</a>
+
+body {
+  padding: 1em;
+}
+
+.ui.action.input input[type="file"] {
+  display: none;
+}
+
+.custom {
+    height: 500px;
+}
+</style> 
 
 
-<% include partials/footer %>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+
+    
+       </head>
+    
+
+    <body> 
+
+<div class="ui inverted container blurring">
+        <div class="ui page dimmer">
+            <div class="content">
+                <div class="center">
+                    <div class="ui  icon header">
+                        <div class="ui huge text loader">Processing...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+
+
+<div class="ui blurring page grid">
+        <nav class="ui text menu navbar">
+            <div class="left menu">
+                <a href="" class="item">The Movie Comparator</a>
+            </div>
+        </nav>
+        <div class="ui grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui huge message page grid center aligned">
+                        <h1 class="ui header">Analyze your film preferences</h1>
+                        <p>Cras justo odio,  <a id="toggle2">click</a> dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                           
+                     <div class="field">     
+                         <div class="ui form basic segment">
+                              <div class="ui fluid file input action">
+                             
+                                                         <form id        =  "uploadForm"
+    enctype   =  "multipart/form-data"
+    action    =  "/home/upload"
+    method    =  "post">
+        </div> 
+        </div>
+        <label class="ui button">
+    
+
+<input type="file" name="avatar" ><button class="ui teal button" type="submit"  id="toggle">Upload</button>
+
+</form>
+<br>
+
+
+          
+                             
+                             
+                         </div>  
+
+  </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui hidden divider"></div>
+        <div class="ui grid">
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header"><i class="user icon"></i>Actors</h2>
+                    <p>Find out who your favorite actors/actresses are and who you absolutely cannot stand</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header"><i class="pie chart icon"></i>Genre</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                </div>
+            </div>
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header"><i class="pie chart icon"></i>Histogram</h2>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header"><i class="pie chart icon"></i>Ratings</h2>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+                </div>
+            </div>
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header"><i class="pie chart icon"></i>Polarizing</h2>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header"><i class="pie chart icon"></i>Subheading</h2>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="ui divider"></div>  
+
+                    <span><a href="google.com">Democritos Tsellos</a></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>    
+    </div>
+    </div>
+    </div>
+ 
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    About
+  </div>
+  <div class="image content">
+    <div class="image">
+      <img class="ui image" src="https://i.ytimg.com/vi/sfA0tZgtSeg/maxresdefault.jpg"></img>
+    </div>
+    <div class="description">
+      A description can appear on the right
+      This site was made to do the folliwng
+      <p>Many things it does</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+  </div>
+
+
+</div>
+    
+    <script>
+        $('#toggle').click(function(){ $('.ui.dimmer').dimmer("toggle")})
+    
+     $('#toggle2').click(function(){ $('.ui.modal')
+  .modal('show')})
+;
+    
+    </script>
+    
+</html>

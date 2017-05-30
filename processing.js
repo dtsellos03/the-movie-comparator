@@ -123,10 +123,13 @@ var GenreAnalysis =
 
 var PolarizingAnalysis = function PolarizingAnalysis(movies) {
     movies.forEach(function(element) {
-        if (element.Metacritic) {
-            element.CritDiff = Round2(Number(element["You rated"]) - 10 * eval(element.Metacritic));
-        }
-        element.IMDbDiff = Round2(element["You rated"] - element["IMDb Rating"])
+          if (element.Metacritic) {
+              element.CritDiff = Number(element["You rated"])-10*eval(element.Metacritic)
+              element.IMDbDiff = element["You rated"]-element["IMDb Rating"]
+          } else {
+            element.CritDiff = 0
+              element.IMDbDiff = element["You rated"]-element["IMDb Rating"]
+          }
     })
 
     //console.log(movies)
@@ -207,18 +210,20 @@ var ActorsAnalysis = function ActorAnalysis(movies) {
     
     movies.forEach(function(element) {
         //element["Genres"] = JSON.parse("[" + element["Genres"] + "]");
-        //console.log(element.Actors)
-        element["Actors"] = element["Actors"].split(',')
+        console.log(element.Actors)
+    if(element.Actors){
+       element["Actors"] = element["Actors"].split(',')
+    }
     })
 
-
+    //console.log(movies)
 
     function isolateScores(movies, TAG) {
         var newlist = [];
         //console.log(movies);
         movies.forEach(function(element) {
-            //console.log(element.Actors)
-           
+            console.log(element.Actors)
+            if(element.Actors){
             element["Actors"].forEach(function(el) {
                 el = el.trim();
                 //console.log(element)
@@ -228,6 +233,7 @@ var ActorsAnalysis = function ActorAnalysis(movies) {
                 })
                 //console.log(newlist)
             })
+            }
         
          })
         //console.log(newlist)
@@ -272,7 +278,7 @@ var ActorsAnalysis = function ActorAnalysis(movies) {
     }
 
     var z = isolateScores(movies)
-   console.log(z)
+   //console.log(z)
 
     var y = Gen(z, "Actors");
     //console.log(y);
@@ -296,11 +302,11 @@ var ActorsAnalysis = function ActorAnalysis(movies) {
 //console.log(z)
 
     var ReturnObject = {
-        "TopActors": Sort(z, "Average", 5, -1),
-        "WorstActors": Sort(z, "Average", 5, 1)
+        "TopActors": Sort(z, "Average", 15, -1),
+        "WorstActors": Sort(z, "Average", 15, 1)
     }
 
-    //console.log(ReturnObject)
+    console.log(ReturnObject)
     return ReturnObject
 
 
