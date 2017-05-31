@@ -30,6 +30,7 @@ var GenreAnalysis = require('./processing_functions/genreanalysis.js');
 var HistogramAnalysis = require('./processing_functions/histogramanalysis.js');
 var PolarizingAnalysis = require('./processing_functions/polarizinganalysis.js');
 var RatingsAnalysis = require('./processing_functions/ratingsanalysis.js');
+var DirectorsAnalysis = require('./processing_functions/directorsanalysis.js');
 
 
 
@@ -87,7 +88,7 @@ function Middleware(filepath, res){
                           movie["Actors"] = JSON.parse(body)["Actors"];
                           movie["Rated"] = JSON.parse(body)["Rated"]
                           count++
-                          console.time('Each object')
+                          
                           JSON.parse(body).Ratings.forEach(function(element){
                                if (element.Source === 'Metacritic'){
                                    movie['Metacritic'] = element.Value
@@ -100,7 +101,7 @@ function Middleware(filepath, res){
                          
                   //    }
 
-                    console.timeEnd('Each object')
+                   
                   }
                   callback();
                   //console.log(count)
@@ -119,6 +120,7 @@ function Middleware(filepath, res){
              // console.log(Actor)
                 console.time('actor analysis')
                 var Actors = ActorsAnalysis(obj);
+                console.log(Actors.ActorsLength)
                 console.timeEnd('actor analysis')
                 console.time('genre analysis')
                 var Genre = GenreAnalysis(obj);
@@ -131,13 +133,15 @@ function Middleware(filepath, res){
                 console.timeEnd('polar analysis')
                 console.time('histo analysis')
                 var Histogram = HistogramAnalysis(obj);
+                var Directors = DirectorsAnalysis(obj);
                 console.timeEnd('histo analysis')
                    var ReturnObj = {
                   Actors: Actors,
                   Genre: Genre,
                   Ratings: Ratings,
                    Polarizing: Polarizing,
-                  Histogram: Histogram
+                  Histogram: Histogram,
+                  Directors: Directors
                    }
                    var Scores=JSON.stringify(ReturnObj.Histogram.myscores);
                  res.render("results", {ReturnObj: ReturnObj, Scores: Scores})

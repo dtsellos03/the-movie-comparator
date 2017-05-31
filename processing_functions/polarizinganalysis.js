@@ -3,11 +3,11 @@ module.exports =
 function PolarizingAnalysis(movies) {
     movies.forEach(function(element) {
           if (element.Metacritic) {
-              element.CritDiff = Number(element["You rated"])-10*eval(element.Metacritic)
-              element.IMDbDiff = element["You rated"]-element["IMDb Rating"]
+              element.CritDiff = Round1(Number(element["You rated"])-10*eval(element.Metacritic))
+              element.IMDbDiff = Round1(element["You rated"]-element["IMDb Rating"])
           } else {
             element.CritDiff = 0
-              element.IMDbDiff = element["You rated"]-element["IMDb Rating"]
+              element.IMDbDiff = Round1(element["You rated"]-element["IMDb Rating"])
           }
     })
 
@@ -33,6 +33,10 @@ function PolarizingAnalysis(movies) {
     }
 
     return ReturnObject;
+    
+    function Round1 (number) {
+    return (Math.round(number * 10) / 10)
+}
 
 }
 
