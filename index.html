@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('https://imdb-comparator-dtsellos03.c9users.io/');
+  socket.on('message', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+    
+  });
+</script>
+    TRY ME
+</html>
+
+<div class="ui huge text loader">Processing... <span id="test1">0</span><span>%</span></div>

@@ -1,8 +1,11 @@
 var express = require("express");
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 var bodyParser = require("body-parser");
 const crypto = require('crypto');
 var obj;
+
 
  var async = require('async');
  var request = require('request');
@@ -31,17 +34,53 @@ var HistogramAnalysis = require('./processing_functions/histogramanalysis.js');
 var PolarizingAnalysis = require('./processing_functions/polarizinganalysis.js');
 var RatingsAnalysis = require('./processing_functions/ratingsanalysis.js');
 var DirectorsAnalysis = require('./processing_functions/directorsanalysis.js');
-
+var TidbitsAnalysis = require('./processing_functions/tidbits.js')
 
 
 
 app.use(bodyParser.json());
-
+app.use(express.static('public'))
 app.set("view engine", "ejs");
+
+
+var chat = io.of("/socket").on('connection',onSocketConnected);
+
+function onSocketConnected(socket){
+   console.log("connected :"+socket.id);  
+}
+
 
 
 app.get("/home", function(req, res){
     res.render("landing");
+});
+
+app.get("/testprogress", function(req, res){
+    res.render("progress1");
+});
+
+app.get("/testprogress2", function(req, res){
+    
+    function myFunc (arg) {
+   io.sockets.emit('message', 'SHUT');
+    
+}
+     
+for(var count = 0; count < 100000; count++){
+               io.sockets.emit('message', count)
+            }
+setTimeout(myFunc, 15000, 'funky');
+setTimeout(myFunc, 20000, 'funky');
+setTimeout(myFunc, 10000, 'funky');
+setTimeout(myFunc, 4000, 'funky');
+setTimeout(myFunc, 15000, 'funky');
+setTimeout(myFunc, 15000, 'funky');
+setTimeout(myFunc, 15000, 'funky');
+setTimeout(myFunc, 15000, 'funky');
+setTimeout(myFunc, 45000, 'funky');
+setTimeout(myFunc, 15000, 'funky');
+//setTimeout(res.render("progress2"), 1000);
+  
 });
 
 app.get("/", function(req, res){
@@ -74,6 +113,7 @@ function Middleware(filepath, res){
       //console.log(movieLength + "is" )
       var count = 0;
       console.time('API call')
+      var totalNumber = obj.length;
        async.forEachOfLimit(obj, 20, function(value, key, callback) {
               //console.log("Position is "+obj[key].position)
               var url = 'http://www.omdbapi.com/?i=' + obj[key].const+'&apikey=9849809a';
@@ -86,8 +126,12 @@ function Middleware(filepath, res){
                       //console.log("Count is" + key)
                     //  if (movie) {
                           movie["Actors"] = JSON.parse(body)["Actors"];
-                          movie["Rated"] = JSON.parse(body)["Rated"]
+                          movie["Rated"] = JSON.parse(body)["Rated"];
+                          
                           count++
+                          var percent = Math.floor((count / totalNumber) * 100)
+                          io.sockets.emit('message', percent);
+                          console.log(percent)
                           
                           JSON.parse(body).Ratings.forEach(function(element){
                                if (element.Source === 'Metacritic'){
@@ -110,14 +154,6 @@ function Middleware(filepath, res){
           }, 
           function(err) {
               console.timeEnd('API call')
-             // console.log("DONE!");
-             //console.log(count)
-              //console.log(obj[32]);
-              //console.log("DONE!");
-            // console.log(obj)
-             // console.log("END OF ACTORS")
-            //  var Actor =  Processer.ActorsAnalysis(obj)
-             // console.log(Actor)
                 console.time('actor analysis')
                 var Actors = ActorsAnalysis(obj);
                 console.log(Actors.ActorsLength)
@@ -134,6 +170,7 @@ function Middleware(filepath, res){
                 console.time('histo analysis')
                 var Histogram = HistogramAnalysis(obj);
                 var Directors = DirectorsAnalysis(obj);
+                var Tidbits = TidbitsAnalysis(obj);
                 console.timeEnd('histo analysis')
                    var ReturnObj = {
                   Actors: Actors,
@@ -141,10 +178,11 @@ function Middleware(filepath, res){
                   Ratings: Ratings,
                    Polarizing: Polarizing,
                   Histogram: Histogram,
-                  Directors: Directors
+                  Directors: Directors,
+                  Tidbits: Tidbits
                    }
                    var Scores=JSON.stringify(ReturnObj.Histogram.myscores);
-                 res.render("results", {ReturnObj: ReturnObj, Scores: Scores})
+                 res.render("results2", {ReturnObj: ReturnObj, Scores: Scores})
                   //console.log(ReturnObj)
 
 
@@ -177,7 +215,7 @@ app.post('/home/upload', upload.single('avatar'), function (req, res, next) {
 })
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
+server.listen(process.env.PORT, process.env.IP, function(){
     console.log("The Camp has started!");
 });
 

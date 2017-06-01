@@ -1,5 +1,6 @@
 <% include partials/header %>
-
+      <link rel="stylesheet" href="css/circle.css">
+    <script src="/socket.io/socket.io.js"></script>
 
    <title>Movie Ratings Comparator</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
@@ -39,7 +40,7 @@ body {
             <div class="content">
                 <div class="center">
                     <div class="ui  icon header">
-                        <div class="ui huge text loader">Processing...</div>
+                                                    <div class="ui huge text loader">Processing... <span id="test1">0</span><span>%</span></div>
                     </div>
                 </div>
             </div>
@@ -156,6 +157,18 @@ body {
 
 </div>
     
+    
+    <script>
+  var socket = io.connect('https://imdb-comparator-dtsellos03.c9users.io/');
+  socket.on('connect', function(){});
+  socket.on('message', function(data){
+      console.log(data+"%")
+     $("#test1").text(data);
+  });
+  socket.on('disconnect', function(){});
+</script>
+
+
     <script>
         $('#toggle').click(function(){ $('.ui.dimmer').dimmer("toggle")})
     

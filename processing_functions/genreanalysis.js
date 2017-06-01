@@ -79,8 +79,8 @@ function GenreAnalysis(movies) {
                 element["Average"] = Round2(avg);
                 var sum = element.runtime.reduce((previous, current) => current += previous);
                 var avg = sum / element.runtime.length;
-                element["Runtime Sum"] = Round2(sum);
-                element["Runtime Percent"] = Round2(100 * sum / total)
+                element["Runtime Sum"] = Round1(sum);
+                element["Runtime Percent"] = Round1(100 * sum / total)
                 //console.log(avg)
             })
             //console.log(y)
@@ -118,6 +118,10 @@ function GenreAnalysis(movies) {
         //console.log(ReturnObject)
         return ReturnObject
 
+
+function Round1 (number) {
+    return (Math.round(number * 10) / 10)
+}
 
 function Round2 (number) {
     return (Math.round(number * 100) / 100)

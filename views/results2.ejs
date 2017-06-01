@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<title>Movie Ratings Comparator</title>
+<link rel="stylesheet" href="./bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+
+<style>
+    .ui.file.input input[type="file"] {
+        display: none;
+    }
+    
+    body {
+        padding: 1em;
+    }
+    
+    .ui.action.input input[type="file"] {
+        display: none;
+    }
+    
+    .custom {
+        height: 500px;
+    }
+    
+    #specials {
+        background-color: #d9e6fc;
+        color: black;
+    }
+
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+
+
+</head>
+<p class="specials">SOME STUFF</p>
+
+<body>
+
+    <div class="ui padded container segment ">
+        <h2 class="ui header label top attached "><i class="users icon"></i>Polarizing films</h2>
+
+       
+        <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+
+                <h2>You loved, critics hated</h2>
+                <table class="ui celled olive table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Movie</th>
+                            <th>You Rated</th>
+                            <th>Metacritic</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+<% ReturnObj.Polarizing["ULOVE-CRITHATE"].forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Title %>
+                        </td>
+                        <td>
+                            <%=element["You rated"] %>
+                        </td>
+                        <td>
+                            <%=element.Metacritic %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>You hated, critics loved</h2>
+                <table class="ui celled teal table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Movie</th>
+                            <th>You Rated</th>
+                            <th>Metacritic</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+<% ReturnObj.Polarizing["UHATE-CRITLOVE"].forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Title %>
+                        </td>
+                        <td>
+                            <%=element["You rated"] %>
+                        </td>
+                        <td>
+                            <%=element.Metacritic %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <br>
+         <div class="ui horizontal divider">
+  
+  </div>
+
+      
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+
+                <h2>You loved, IMDb hated</h2>
+                <table class="ui celled yellow table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Movie</th>
+                            <th>You Rated</th>
+                             <th>IMDb rating</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Polarizing["ULOVE-IMDBHATE"].forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Title %>
+                        </td>
+                        <td>
+                            <%=element["You rated"] %>
+                        </td>
+                        <td>
+                            <%=element["IMDb Rating"]%>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>You hated, IMDb loved</h2>
+                <table class="ui celled orange table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Movie</th>
+                            <th>You Rated</th>
+                            <th>IMDb rating</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                  <% ReturnObj.Polarizing["UHATE-IMDBLOVE"].forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Title %>
+                        </td>
+                        <td>
+                            <%=element["You rated"] %>
+                        </td>
+                        <td>
+                           <%=element["IMDb Rating"]%>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+    </div>
+<br>
+    <div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="users icon"></i>Actor/Actresses</h2>
+        <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+  
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+                      <h2>Your top rated actors</h2>
+                <table class="ui celled blue table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average score</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+<% ReturnObj.Actors.TopActors.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Actors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Your lowest rated actors</h2>
+                <table class="ui celled violet table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average score</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Actors.WorstActors.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Actors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+
+
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+
+                <h2> Prolific actors</h2>
+                <table class="ui celled green table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average rating</th>
+                            <th>Number of films</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Actors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                         <td>
+                            <%=element.score.length %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Polarizing actors</h2>
+
+                <table class="ui celled pink table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average rating</th>
+                            <th>Standard dev.</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Actors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                          <td>
+                            <%=element.Stdev %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+<br>
+    <div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="signal icon"></i>Histogram of ratings</h2>
+       <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+                <h2>Your rating distribution</h2>
+
+
+
+            </div>
+            <div class="eight wide column">
+                <h2>IMDb ratings distribution</h2>
+
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+
+
+
+
+
+    </div>
+
+<br>
+ <div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="tasks icon"></i>Genres</h2>
+        <br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+       
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+                <h2>Top viewed genres</h2>
+                <table class="ui celled teal table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Genre</th>
+                            <th>Percent viewed</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                     <% ReturnObj.Genre.TopRunTime.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Genres %>
+                        </td>
+                        <td>
+                            <%=element["Runtime Percent"] %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Top rated genres</h2>
+                <table class="ui celled olive table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Genre</th>
+                            <th>Average score</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                    <% ReturnObj.Genre.TopScore.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Genres %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+</div>
+
+
+<div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="unhide icon"></i>MPAA Ratings</h2>
+        <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+        
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+                <h2>MPAA ratings of your films</h2>
+   
+<div class="progress" style="margin: 3px; height:20px;">
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width: 80%;">
+        PG-13
+    </div>
+    <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 20%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+         56 %
+    </div>
+
+</div>
+
+<div class="progress" style="margin: 3px;">
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width: 80%;">
+        R
+    </div>
+    <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 20%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+         56 %
+    </div>
+
+</div>
+
+            </div>
+            <div class="eight wide column">
+                <h2>MPAA ratings of top 10,00 IMDb films</h2>
+              
+                
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+</div>
+
+<div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="grid layout icon"></i>Tidbits</h2>
+       <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+        
+        <div class="ui statistics">
+  <div class="statistic">
+    <div class="value">
+      <i class="film icon"></i> 672
+    </div>
+    <div class="label">
+      Films
+    </div>
+  </div>
+  <div class="statistic">
+    <div class="value">
+      <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
+      42,876
+    </div>
+    <div class="label">
+      hours
+    </div>
+  </div>
+</div>
+
+               <div class="ui grid ">
+            <div class="eight wide column">
+                <h2>Longest films you've seen</h2>
+                <table class="ui celled teal table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Film</th>
+                            <th>Runtime (minutes)</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                    <tr>
+                        <td>
+                            Santa Sangre
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Transformers
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            There will be blood
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Obscure films you've seen</h2>
+                <table class="ui celled olive table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Film</th>
+                            <th>IMDb votes</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                    <tr>
+                        <td>
+                            Santa Sangre
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Transformers
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            There will be blood
+                        </td>
+                        <td>
+                            8
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+</div>
