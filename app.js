@@ -34,6 +34,7 @@ var HistogramAnalysis = require('./processing_functions/histogramanalysis.js');
 var PolarizingAnalysis = require('./processing_functions/polarizinganalysis.js');
 var RatingsAnalysis = require('./processing_functions/ratingsanalysis.js');
 var DirectorsAnalysis = require('./processing_functions/directorsanalysis.js');
+var WritersAnalysis = require('./processing_functions/writersanalysis.js');
 var TidbitsAnalysis = require('./processing_functions/tidbits.js')
 
 
@@ -108,7 +109,10 @@ function Middleware(filepath, res){
   function handleFile(err, data) {
       if (err) throw err
       
-      var obj = JSON.parse(data);
+      var movies = JSON.parse(data);
+       var obj = movies.filter(function(word){
+   return word["Title type"] === "Feature Film";
+ })
       var movieLength = obj.length;
       //console.log(movieLength + "is" )
       var count = 0;
@@ -123,15 +127,15 @@ function Middleware(filepath, res){
               request(url, function(error, response, body) {
                   //console.log(error)
                   if (!error) {
-                      //console.log("Count is" + key)
+                      console.log("Count is" + key)
                     //  if (movie) {
                           movie["Actors"] = JSON.parse(body)["Actors"];
                           movie["Rated"] = JSON.parse(body)["Rated"];
-                          
+                          movie["Writers"]= JSON.parse(body)["Writer"].replace(/ *\([^)]*\) */g, "");;
                           count++
                           var percent = Math.floor((count / totalNumber) * 100)
                           io.sockets.emit('message', percent);
-                          console.log(percent)
+                         // console.log(percent)
                           
                           JSON.parse(body).Ratings.forEach(function(element){
                                if (element.Source === 'Metacritic'){
@@ -171,7 +175,9 @@ function Middleware(filepath, res){
                 var Histogram = HistogramAnalysis(obj);
                 var Directors = DirectorsAnalysis(obj);
                 var Tidbits = TidbitsAnalysis(obj);
+                var Writers = WritersAnalysis(obj);
                 console.timeEnd('histo analysis')
+                console.log(Writers)
                    var ReturnObj = {
                   Actors: Actors,
                   Genre: Genre,
@@ -179,7 +185,8 @@ function Middleware(filepath, res){
                    Polarizing: Polarizing,
                   Histogram: Histogram,
                   Directors: Directors,
-                  Tidbits: Tidbits
+                  Tidbits: Tidbits,
+                  Writers: Writers
                    }
                    var Scores=JSON.stringify(ReturnObj.Histogram.myscores);
                  res.render("results2", {ReturnObj: ReturnObj, Scores: Scores})

@@ -1,5 +1,4 @@
 <% include partials/header %>
-      <link rel="stylesheet" href="css/circle.css">
     <script src="/socket.io/socket.io.js"></script>
 
    <title>Movie Ratings Comparator</title>
@@ -40,8 +39,13 @@ body {
             <div class="content">
                 <div class="center">
                     <div class="ui  icon header">
-                                                    <div class="ui huge text loader">Processing... <span id="test1">0</span><span>%</span></div>
-                    </div>
+                                                    <div class="ui huge text loader">Processing... <span id="test1">0</span><span>%</span>
+                                                    
+                                               
+                                                    
+                                              
+                    </div>     </div>
+                        
                 </div>
             </div>
         </div>
@@ -58,7 +62,7 @@ body {
         <div class="ui grid">
             <div class="row">
                 <div class="column">
-                    <div class="ui huge message page grid center aligned">
+                    <div class="ui  message page grid center aligned">
                         <h1 class="ui header">Analyze your film preferences</h1>
                         <p>Cras justo odio,  <a id="toggle2">click</a> dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                            
@@ -164,6 +168,9 @@ body {
   socket.on('message', function(data){
       console.log(data+"%")
      $("#test1").text(data);
+     $('#example4').progress({
+  percent: data
+});
   });
   socket.on('disconnect', function(){});
 </script>

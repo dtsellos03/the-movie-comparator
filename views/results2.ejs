@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>Movie Ratings Comparator</title>
-<link rel="stylesheet" href="./bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
 
 <style>
@@ -11,6 +11,7 @@
     
     body {
         padding: 1em;
+
     }
     
     .ui.action.input input[type="file"] {
@@ -25,6 +26,10 @@
         background-color: #d9e6fc;
         color: black;
     }
+    
+    td:hover {
+        color: red;
+    }
 
 </style>
 
@@ -34,12 +39,19 @@
 
 
 </head>
-<p class="specials">SOME STUFF</p>
+
 
 <body>
 
+<script type="text/javascript">
+$(document).ready(function(){
+$('body').fadeIn(1000);
+});
+</script>
+
     <div class="ui padded container segment ">
-        <h2 class="ui header label top attached "><i class="users icon"></i>Polarizing films</h2>
+        <h1 class="ui huge header">Results</h1>
+        <h2 class="ui header label left aligned top attached "><i class="users icon"></i>Polarizing films</h2>
 
        
         <br><br><br><br>
@@ -220,7 +232,7 @@
 
 <% ReturnObj.Actors.TopActors.forEach(function(element){ %>
                     <tr>
-                        <td>
+                        <td data-tooltip="<%=element.title%>" data-position="top right">
                             <%=element.Actors %>
                         </td>
                         <td>
@@ -251,7 +263,7 @@
 
                    <% ReturnObj.Actors.WorstActors.forEach(function(element){ %>
                     <tr>
-                        <td>
+                        <td data-tooltip="<%=element.title%>" data-position="top right">
                             <%=element.Actors %>
                         </td>
                         <td>
@@ -291,7 +303,15 @@
 
                    <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
                     <tr>
-                        <td>
+                        <td style="cursor:pointer" class="super" data-html="
+                        
+                        <table class='ui celled table'>
+                       <% element.title.forEach(function(el){ %>
+                       <td><%=el%></td>
+                       <% }); %>
+                        </table>
+                        
+                        ">
                             <%=element.Actors %>
                         </td>
                         <td>
@@ -302,8 +322,6 @@
                         </td>
                     </tr>
   <% }); %>
-
-
                     </tbody>
                 </table>
 
@@ -325,7 +343,7 @@
 
                    <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
                     <tr>
-                        <td>
+                        <td data-tooltip="<%=element.title%>" data-position="top right">
                             <%=element.Actors %>
                         </td>
                         <td>
@@ -351,7 +369,164 @@
 
 
     </div>
+    
 <br>
+
+ <div class="ui  padded container segment">
+        <h2 class="ui header top attached label"><i class="users icon"></i>Directors</h2>
+        <br><br><br><br>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+  
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+                      <h2>Your top rated directors</h2>
+                <table class="ui celled blue table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average score</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+<% ReturnObj.Directors.TopDirectors.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Directors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Your lowest rated directors</h2>
+                <table class="ui celled violet table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average score</th>
+
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Directors.WorstDirectors.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Directors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+
+
+
+        <div class="ui grid ">
+            <div class="eight wide column">
+
+                <h2> Prolific directors</h2>
+                <table class="ui celled green table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Actor</th>
+                            <th>Average rating</th>
+                            <th>Number of films</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Directors.MostProlific.forEach(function(element){ %>
+                    <tr>
+                        <td>
+                            <%=element.Directors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                         <td>
+                            <%=element.score.length %>
+                        </td>
+                    </tr>
+  <% }); %>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="eight wide column">
+                <h2>Polarizing directors</h2>
+
+                <table class="ui celled pink table" style="width: 100%;">
+                    <thead>
+
+                        <tr>
+                            <th>Director</th>
+                            <th>Average rating</th>
+                            <th>Standard dev.</th>
+                        </tr>
+                        <tbody>
+
+                    </thead>
+
+                   <% ReturnObj.Directors.MostControversial.forEach(function(element){ %>
+                    <tr>
+                        <td data-tooltip="<%=element.title%>" data-position="top right">
+                            <%=element.Directors %>
+                        </td>
+                        <td>
+                            <%=element.Average %>
+                        </td>
+                          <td>
+                            <%=element.Stdev %>
+                        </td>
+                    </tr>
+  <% }); %>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
     <div class="ui  padded container segment">
         <h2 class="ui header top attached label"><i class="signal icon"></i>Histogram of ratings</h2>
        <br><br><br><br>
@@ -510,7 +685,7 @@
         <div class="ui statistics">
   <div class="statistic">
     <div class="value">
-      <i class="film icon"></i> 672
+      <i class="film icon"></i> <%= ReturnObj.Tidbits.totalMovies %>
     </div>
     <div class="label">
       Films
@@ -519,7 +694,7 @@
   <div class="statistic">
     <div class="value">
       <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
-      42,876
+      <%= Math.round(ReturnObj.Tidbits.totalRuntime/60) %>
     </div>
     <div class="label">
       hours
@@ -542,35 +717,19 @@
 
                     </thead>
 
-                    <tr>
-                        <td>
-                            Santa Sangre
-                        </td>
-                        <td>
-                            8
-                        </td>
+                   <% ReturnObj.Tidbits.longMovies.forEach(function(element){ %>
 
-                    </tr>
+        <tr>
+            <td>
+                <%=element.Title %>
+            </td>
+            <td>
+                <%=element["Runtime (mins)"] %>
+            </td>
+        </tr>
 
-                    <tr>
-                        <td>
-                            Transformers
-                        </td>
-                        <td>
-                            8
-                        </td>
+        <% }); %>
 
-                    </tr>
-
-                    <tr>
-                        <td>
-                            There will be blood
-                        </td>
-                        <td>
-                            8
-                        </td>
-
-                    </tr>
 
 
                     </tbody>
@@ -591,35 +750,20 @@
 
                     </thead>
 
-                    <tr>
-                        <td>
-                            Santa Sangre
-                        </td>
-                        <td>
-                            8
-                        </td>
+                   <% ReturnObj.Tidbits.obscureMovies.forEach(function(element){ %>
 
-                    </tr>
+        <tr>
+            <td>
+                <%=element.Title %>
+            </td>
+            <td>
+                <%=element.Num %>
+            </td>
+        </tr>
 
-                    <tr>
-                        <td>
-                            Transformers
-                        </td>
-                        <td>
-                            8
-                        </td>
-
-                    </tr>
-
-                    <tr>
-                        <td>
-                            There will be blood
-                        </td>
-                        <td>
-                            8
-                        </td>
-
-                    </tr>
+        <% }); %>
+        
+        
 
 
                     </tbody>
@@ -632,3 +776,10 @@
         <br>
         <hr>
 </div>
+
+<script>$('.super').popup({
+
+	on: 'click',
+	position: 'top left'
+});
+;</script>

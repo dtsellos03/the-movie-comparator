@@ -26,7 +26,7 @@ function Tidbits(movies) {
     }
         
 
-        
+   totalRuntime =  Math.round(totalRuntime);
     
    // console.log(totalRuntime)
     
@@ -38,7 +38,7 @@ function Tidbits(movies) {
 
     }
 
-  //  console.log(ReturnObject)
+  //console.log(ReturnObject)
     return ReturnObject
 
 }
