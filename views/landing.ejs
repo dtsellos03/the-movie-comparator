@@ -62,33 +62,36 @@ body {
         <div class="ui grid">
             <div class="row">
                 <div class="column">
-                    <div class="ui  message page grid center aligned">
+                    <div class="ui  huge floating message">
                         <h1 class="ui header">Analyze your film preferences</h1>
                         <p>Cras justo odio,  <a id="toggle2">click</a> dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                            
-                     <div class="field">     
-                         <div class="ui form basic segment">
-                              <div class="ui fluid file input action">
-                             
-                                                         <form id        =  "uploadForm"
-    enctype   =  "multipart/form-data"
-    action    =  "/home/upload"
-    method    =  "post">
-        </div> 
-        </div>
-        <label class="ui button">
+                    <form   style="width: 500px" id = "uploadForm" enctype   =  "multipart/form-data" action="/home/upload" method = "post">
     
+    <div class="ui basic form segment">
+    <div class="field">
+        <label for="file1">Upload your ratings.csv f</label>
+        <div class="ui fluid file input action">
+       
 
-<input type="file" name="avatar" ><button class="ui teal button" type="submit"  id="toggle">Upload</button>
+            <input type="text" placeholder="ratings.csv" readonly>
+            <input type="file" id="file1" name="avatar" autocomplete="off" placeholder="DOGjjjjjjjjjjjjjjjjj">
+            <div class="ui button">
+                Select...
+            </div>
+            
+        </div>
+        <br>
+        <button class = "ui primary button" type="submit" id="toggle">Upload</button>
+        
+            </form>
+    </div>
 
-</form>
-<br>
-
-
-          
-                             
-                             
-                         </div>  
+</div>
+    
+    
+    
+     
 
   </label>
                     </div>
@@ -184,5 +187,29 @@ body {
 ;
     
     </script>
+    
+    <script>
+$('.ui.file.input').find('input:text, .ui.button')
+  .on('click', function(e) {
+    $(e.target).parent().find('input:file').click();
+  })
+;
+
+$('input:file', '.ui.file.input')
+  .on('change', function(e) {
+    var file = $(e.target);
+    var name = '';
+
+    for (var i=0; i<e.target.files.length; i++) {
+      name += e.target.files[i].name + ', ';
+    }
+    // remove trailing ","
+    name = name.replace(/,\s*$/, '');
+
+		$('input:text', file.parent()).val(name);
+  })
+;
+
+</script>
     
 </html>
