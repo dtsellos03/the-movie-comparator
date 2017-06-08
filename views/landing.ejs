@@ -34,16 +34,13 @@ body {
 
     <body> 
 
-<div class="ui inverted container blurring">
-        <div class="ui page dimmer">
+<div class="ui container blurring">
+        <div class="ui inverted page dimmer">
             <div class="content">
                 <div class="center">
                     <div class="ui  icon header">
                                                     <div class="ui huge text loader">Processing... <span id="test1">0</span><span>%</span>
-                                                    
-                                               
-                                                    
-                                              
+                       
                     </div>     </div>
                         
                 </div>
@@ -62,15 +59,15 @@ body {
         <div class="ui grid">
             <div class="row">
                 <div class="column">
-                    <div class="ui  huge floating message">
-                        <h1 class="ui header">Analyze your film preferences</h1>
-                        <p>Cras justo odio,  <a id="toggle2">click</a> dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                           
+                    <div class="ui  huge floating message" >
+                       <h1 class="ui header">Analyze your film preferences</h1>
+                            <p>If you rate movies on IMDb, you can export your ratings, upload them here, and we'll analyze your likes and dislikes. <a href="/example" >Check out</a> a sample page of results.</p>
+                            <p>Learn  <a id="toggle3" >more</a> about the process, find out  <a id="toggle2" >how to export</a> your IMDb ratings, or if you're ready, upload your ratings file below.</p>
                     <form   style="width: 500px" id = "uploadForm" enctype   =  "multipart/form-data" action="/home/upload" method = "post">
     
     <div class="ui basic form segment">
     <div class="field">
-        <label for="file1">Upload your ratings.csv f</label>
+        <label for="file1">Upload your ratings file</label>
         <div class="ui fluid file input action">
        
 
@@ -82,8 +79,8 @@ body {
             
         </div>
         <br>
-        <button class = "ui primary button" type="submit" id="toggle">Upload</button>
-        
+        <button disabled class = "ui green button submitbutton" type="submit" id="toggle">Upload</button>
+       
             </form>
     </div>
 
@@ -99,69 +96,128 @@ body {
             </div>
         </div>
         <div class="ui hidden divider"></div>
-        <div class="ui grid">
-            <div class="two column row">
-                <div class="column">
-                    <h2 class="ui medium header"><i class="user icon"></i>Actors</h2>
-                    <p>Find out who your favorite actors/actresses are and who you absolutely cannot stand</p>
+                   <div class="ui grid">
+                <div class="two column row">
+                    <div class="column">
+                        <h2 class="ui medium header"><i class="users icon"></i>Actors</h2>
+                        <p>See which actors/actresses you like the most, and which you can't stand.</p>
+                    </div>
+                     <div class="column">
+                        <h2 class="ui medium header"><i class="user icon"></i>Directors</h2>
+                        <p>Find out which directors consistently make films you enjoy.</p>
+                    </div>
+                   
                 </div>
-                <div class="column">
-                    <h2 class="ui medium header"><i class="pie chart icon"></i>Genre</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                
+                <div class="two column row">
+                  <div class="column">
+                        <h2 class="ui medium header"><i class="write icon"></i>Writers</h2>
+                        <p>See which writers are behind films you like.</p>
+                    </div>
+                     <div class="column">
+                        <h2 class="ui medium header"><i class="puzzle icon"></i>Genre</h2>
+                        <p>Find out which genres you watch the most of.</p>
+                    </div>
+                   
+                   
                 </div>
-            </div>
-            <div class="two column row">
-                <div class="column">
-                    <h2 class="ui medium header"><i class="pie chart icon"></i>Histogram</h2>
-                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+                    
+                
+                <div class="two column row">
+                     <div class="column">
+                        <h2 class="ui medium header"><i class="law icon"></i>Polarizing</h2>
+                        <p>Find out what movies you hated but critics loved, and vice versa.</p>
+                    </div>
+                      <div class="column">
+                        <h2 class="ui medium header"><i class="bar chart icon"></i>Histogram</h2>
+                        <p>See what kind of scores you typically give movies, compared to other people.</p>
+                    </div>
+                 
                 </div>
-                <div class="column">
-                    <h2 class="ui medium header"><i class="pie chart icon"></i>Ratings</h2>
-                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-                </div>
-            </div>
-            <div class="two column row">
-                <div class="column">
-                    <h2 class="ui medium header"><i class="pie chart icon"></i>Polarizing</h2>
-                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                </div>
-                <div class="column">
-                    <h2 class="ui medium header"><i class="pie chart icon"></i>Subheading</h2>
-                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="ui divider"></div>  
+                <div class="two column row">
+                      <div class="column">
+                        <h2 class="ui medium header"><i class="low vision icon"></i>MPAA Ratings</h2>
+                        <p>See whether you tend to watch R rated, PG-13, or G rated movies.</p>
+                    </div>
+                    <div class="column">
+                        <h2 class="ui medium header"><i class="info icon"></i>Tidbits</h2>
+                        <p>Learn some miscellaneous info, like which are the longest films you've seen and the most obscure.</p>
+                    </div>
 
-                    <span><a href="google.com">Democritos Tsellos</a></a></span>
                 </div>
-            </div>
-        </div>
+                    <div class="row">
+                        <div class="column">
+                            <div class="ui divider"></div>
+
+                            <span><a href="google.com">Democritos Tsellos</a></a></span>
+                        </div>
+                    </div>
+                </div>
     </div>
     </div>    
     </div>
     </div>
     </div>
  
-<div class="ui modal">
+<div class="ui small modal guide">
   <i class="close icon"></i>
   <div class="header">
-    About
+    Exporting your IMDb ratings
   </div>
   <div class="image content">
     <div class="image">
-      <img class="ui image" src="https://i.ytimg.com/vi/sfA0tZgtSeg/maxresdefault.jpg"></img>
+      <img class="ui image" style="width: 400px;" src="/static/images/signin.gif"></img>
     </div>
     <div class="description">
-      A description can appear on the right
-      This site was made to do the folliwng
-      <p>Many things it does</p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </div>
+        <h1>Log in</h1>
+        <p>Log into your IMDB account.</p>
+</div>
   </div>
+  <hr>
+    <div class="image content">
+    <div class="image">
+      <img class="ui image" style="width: 400px;" src="/static/images/johndoe.gif"></img>
+    </div>
+    <div class="description">
+        <h1>Navigate to My Ratings</h1>
+        <p>Navigate to My Ratings</p>
+</div>
+  </div>
+  <hr>
+    <div class="image content">
+    <div class="image">
+      <img class="ui image" style="width: 400px;" src="/static/images/export.gif"></img>
+    </div>
+    <div class="description">
+        <h1>Export list</h1>
+        <p>Scroll to the bottom of My ratings, and click Export List.</p>
+</div>
+  </div>
+  <hr>
+    <div class="image content">
+    <div class="image">
+      <img class="ui image" style="width: 400px;" src="/static/images/ratings.gif"></img>
+    </div>
+    <div class="description">
+        <h1>Upload ratings.csv file</h1>
+        <p>A ratings.csv file will be downloaded from IMDb. Upload this on the main page.</p>
+</div>
+  </div>
+  
+  
+  
+  
+  
+</div>
 
-
+<div class="ui small modal about">
+  <div class="header">About</div>
+  <div class="content">
+      
+      <p>This websites uses the <a href="http://www.omdbapi.com/">OMDb API</a> to retrieve information for each movie you've rated, such as the actors, writers, directors, and MPAA rating.</p>
+      <p>No data mining or web scraping is used, and the website is not affiliated with IMDb.</p>
+      
+    </div>
 </div>
     
     
@@ -182,7 +238,11 @@ body {
     <script>
         $('#toggle').click(function(){ $('.ui.dimmer').dimmer("toggle")})
     
-     $('#toggle2').click(function(){ $('.ui.modal')
+     $('#toggle2').click(function(){ $('.ui.modal.guide')
+  .modal('show')})
+;
+
+     $('#toggle3').click(function(){ $('.ui.modal.about')
   .modal('show')})
 ;
     
@@ -210,6 +270,12 @@ $('input:file', '.ui.file.input')
   })
 ;
 
+</script>
+
+<script>
+    $('input:file').on("change", function() {
+    $('.submitbutton').prop('disabled', !$(this).val()); 
+});
 </script>
     
 </html>

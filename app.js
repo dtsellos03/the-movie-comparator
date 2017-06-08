@@ -38,9 +38,8 @@ var WritersAnalysis = require('./processing_functions/writersanalysis.js');
 var TidbitsAnalysis = require('./processing_functions/tidbits.js')
 
 
-
 app.use(bodyParser.json());
-app.use(express.static('public'))
+app.use('/static', express.static('public'))
 app.set("view engine", "ejs");
 
 
@@ -56,33 +55,6 @@ app.get("/home", function(req, res){
     res.render("landing");
 });
 
-app.get("/testprogress", function(req, res){
-    res.render("progress1");
-});
-
-app.get("/testprogress2", function(req, res){
-    
-    function myFunc (arg) {
-   io.sockets.emit('message', 'SHUT');
-    
-}
-     
-for(var count = 0; count < 100000; count++){
-               io.sockets.emit('message', count)
-            }
-setTimeout(myFunc, 15000, 'funky');
-setTimeout(myFunc, 20000, 'funky');
-setTimeout(myFunc, 10000, 'funky');
-setTimeout(myFunc, 4000, 'funky');
-setTimeout(myFunc, 15000, 'funky');
-setTimeout(myFunc, 15000, 'funky');
-setTimeout(myFunc, 15000, 'funky');
-setTimeout(myFunc, 15000, 'funky');
-setTimeout(myFunc, 45000, 'funky');
-setTimeout(myFunc, 15000, 'funky');
-//setTimeout(res.render("progress2"), 1000);
-  
-});
 
 app.get("/", function(req, res){
     res.render("landing");
@@ -132,6 +104,7 @@ function Middleware(filepath, res){
                           movie["Actors"] = JSON.parse(body)["Actors"];
                           movie["Rated"] = JSON.parse(body)["Rated"];
                           movie["Writers"]= JSON.parse(body)["Writer"].replace(/ *\([^)]*\) */g, "");;
+                          movie["Poster"]= JSON.parse(body)["Poster"];
                           count++
                           var percent = Math.floor((count / totalNumber) * 100)
                           io.sockets.emit('message', percent);

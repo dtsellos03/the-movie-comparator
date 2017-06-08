@@ -27,6 +27,7 @@
       i {
       color: #38455b;
       }
+      
 
       
       
@@ -44,7 +45,9 @@
           <br><br>
          <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
          <hr>
-         <div class="ui sticky fluid eight item menu">
+   <div class="ui sticky">
+      <h1 style="background-color: white"></h1>
+         <div class="ui fluid eight item menu" id="dog">
   <a class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
   <a class="item"><i class="users icon"></i>Actors</a>
   <a class="item"><i class="user icon"></i>Directors</a>
@@ -53,10 +56,15 @@
          <a class="item"><i class="bar chart icon"></i>Histogram</a>
          <a class="item"><i class="low vision icon"></i>MPAA</a>
             <a class="item"><i class="info icon"></i>Tidbits</a>
-      
+ 
 </div>
-<br>
+     <div>
+       <h1 style="background-color: white"> THIS IS EMPTY SPACE</h1>
+     </div>
+</div>
+
       </div>
+      <div id="example1">
       <br> <br> <br>
       <div class="ui container ">
          <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
@@ -612,9 +620,23 @@
          <br>
          <hr>
       </div>
+      </div>
       <script>$('.super').popup({
          on: 'click',
          position: 'top left'
          });
          ;
       </script>
+      <script>
+         
+               $(document).ready(function(){
+     $('.ui.sticky')
+  .sticky({
+    context: '#example1'
+  });
+
+ })
+
+         
+      </script>
+
