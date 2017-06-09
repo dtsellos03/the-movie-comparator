@@ -4,7 +4,6 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var bodyParser = require("body-parser");
 const crypto = require('crypto');
-var obj;
 
 
 var async = require('async');
@@ -183,10 +182,8 @@ function Middleware(filepath, res) {
                             Tidbits: Tidbits,
                             Writers: Writers
                         }
-                        var Scores = JSON.stringify(ReturnObj.Histogram.myscores);
                         res.render("results2", {
                                 ReturnObj: ReturnObj,
-                                Scores: Scores
                             })
                             //console.log(ReturnObj)
 

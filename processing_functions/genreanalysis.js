@@ -27,6 +27,7 @@ function GenreAnalysis(movies) {
                 //console.log(element
                 element["Genres"].slice(0, 2).forEach(function(el) {
                     el = el.trim();
+                    el = el.charAt(0).toUpperCase() + el.slice(1)
                     //console.log(element)
                     newlist.push({
                         "Genres": el,

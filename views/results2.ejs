@@ -191,13 +191,11 @@ i {
       <br>
        <br>
       <div class="ui container ">
-         <h2 class="ui header"><i class="users icon"></i>Actor/Actresses <a name="chapter4"></a></h2>
+         <h2 class="ui header"><i class="users icon"></i>Actor/Actresses</h2>
          <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
       </div>
       <br>
       <div class="ui  padded container segment">
-
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
          <div class="ui grid ">
             <div class="eight wide column">
                <h2>Your top rated actors</h2>
@@ -263,11 +261,16 @@ i {
                      <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
                      <tr>
                         <td style="cursor:pointer" class="super" data-html="
-                           <table class='ui celled table'>
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
                            <% element.title.forEach(function(el){ %>
-                           <td><%=el%></td>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
                            <% }); %>
-                           </table>
+                           </div>
                            ">
                            <%=element.Actors %>
                         </td>
@@ -295,7 +298,18 @@ i {
                      </thead>
                      <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
                      <tr>
-                        <td data-tooltip="<%=element.title%>" data-position="top right">
+                          <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
                            <%=element.Actors %>
                         </td>
                         <td>
@@ -325,7 +339,7 @@ i {
                <table class="ui celled blue table" style="width: 100%;">
                   <thead>
                      <tr>
-                        <th>Actor</th>
+                        <th>Director</th>
                         <th>Average score</th>
                      </tr>
                   <tbody>
@@ -348,7 +362,7 @@ i {
                <table class="ui celled violet table" style="width: 100%;">
                   <thead>
                      <tr>
-                        <th>Actor</th>
+                        <th>Director</th>
                         <th>Average score</th>
                      </tr>
                   <tbody>
@@ -375,7 +389,7 @@ i {
                <table class="ui celled green table" style="width: 100%;">
                   <thead>
                      <tr>
-                        <th>Actor</th>
+                        <th>Director</th>
                         <th>Average rating</th>
                         <th>Number of films</th>
                      </tr>
