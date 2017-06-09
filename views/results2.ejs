@@ -3,52 +3,50 @@
    <title>Movie Ratings Comparator</title>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
 
    <style>
-      .ui.file.input input[type="file"] {
-      display: none;
-      }
-      body {
-      padding: 1em;
-      }
-      .ui.action.input input[type="file"] {
-      display: none;
-      }
-      .custom {
-      height: 500px;
-      }
-      #specials {
-      background-color: #d9e6fc;
-      color: black;
-      }
-      td:hover {
-      color: #0099ff;
-      }
-      i {
-      color: #38455b;
-      }
-      
+.ui.file.input input[type="file"] {
+    display: none;
+}
+body {
+    padding: 1em;
+}
+.ui.action.input input[type="file"] {
+    display: none;
+}
+.custom {
+    height: 500px;
+}
+#specials {
+    background-color: #d9e6fc;
+    color: black;
+}
+td:hover {
+    color: #0099ff;
+}
+i {
+    color: #38455b;
+}
 
       
+   
       
    </style>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
    </head>
-   <body>
-      <script type="text/javascript">
-         $(document).ready(function(){
-         $('body').fadeIn(1000);
-         });
-      </script>
+   <body >
+
+      <div id="teste" style="display: none;">
       <div class="ui container ">
           <br><br>
          <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
          <hr>
-   <div class="ui sticky">
-      <h1 style="background-color: white"></h1>
+   <div class="ui sticky"  style="background-color: white;">
+     <div style="background-color: white; height: 10px;"></div>
          <div class="ui fluid eight item menu" id="dog">
-  <a class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
+  <a href="#p55" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
   <a class="item"><i class="users icon"></i>Actors</a>
   <a class="item"><i class="user icon"></i>Directors</a>
    <a class="item"><i class="write icon"></i>Writers</a>
@@ -59,8 +57,10 @@
  
 </div>
      <div>
-       <h1 style="background-color: white"> THIS IS EMPTY SPACE</h1>
+       <div style="background-color: white; height: 20px;"><hr></div>
+      
      </div>
+   
 </div>
 
       </div>
@@ -621,6 +621,7 @@
          <hr>
       </div>
       </div>
+      </div>
       <script>$('.super').popup({
          on: 'click',
          position: 'top left'
@@ -636,7 +637,13 @@
   });
 
  })
-
          
       </script>
+      
+      <script>
+         $(document).ready(function(){
+    $("#teste").hide(0).delay(0).fadeIn(700)
+});
+      </script>
+
 
