@@ -27,7 +27,7 @@ var upload = multer({
     storage: storage
 })
 
-var Processer = require("./processing.js")
+//var Processer = require("./processing.js")
 
 var ActorsAnalysis = require('./processing_functions/actorsanalysis.js');
 var GenreAnalysis = require('./processing_functions/genreanalysis.js');
@@ -67,32 +67,39 @@ app.get("/", function(req, res) {
 function Middleware(filepath, res) {
     var fullpath = "uploads/" + filepath
     console.time('parse csv')
-    var writeStream = fs.createWriteStream('newtest.json');
+    var JSONfile = Math.round(100000*Math.random()).toString()+'_obj.json'
+    var writeStream = fs.createWriteStream(JSONfile);
     const csvFilePath = fullpath
     const csv = require('csvtojson')
     csv({
         toArrayString: true
     }).fromFile(csvFilePath).pipe(writeStream)
     writeStream.on('finish', function() {
-        var file = 'newtest.json'
+        fs.unlink(fullpath, (err) => {
+          if (err) throw err;
+          console.log('successfully deleted input file');
+        });
         var start = Date.now();
-        try {
-            var answers = JSON.parse(fs.readFileSync(file, 'utf8'))
-        }
-        catch (err) {
-            res.send("SYNTAX" + err)
+
+
+        console.timeEnd('parse csv')
+         try {
+        fs.readFile(JSONfile, handleFile)
+         }
+       catch (err) {
+              res.render("error", {err: err});
             return null
         }
 
-        console.timeEnd('parse csv')
-        fs.readFile(file, handleFile)
-
-
         function handleFile(err, data) {
             if (err) {
-                res.send("ERROR")
+                res.render("error")
             }
             try {
+                fs.unlink(JSONfile, (err) => {
+                    if (err) throw err;
+                    console.log('successfully deleted input file');
+                });
                 var movies = JSON.parse(data);
                 var obj = movies.filter(function(word) {
                     return word["Title type"] === "Feature Film";
@@ -134,7 +141,7 @@ function Middleware(filepath, res) {
                                 catch (err) {
                                     console.log("INITIAL LOG")
                                     try{
-                                    res.send("ERRORS")
+                                     res.render("error", {err: err});
                                     } catch(err){
                                         console.log("CANT SET HEADERS")
                                     }
@@ -147,7 +154,7 @@ function Middleware(filepath, res) {
 
                     },
                     function(err) {
-                        console.log("THIS FUNCTION NOW")
+                       
                         if(err){
                             console.log(err)
                         }
@@ -176,6 +183,11 @@ function Middleware(filepath, res) {
                             Actors: Actors,
                             Genre: Genre,
                             Ratings: Ratings,
+                            IMDBRatings: [ { rating: 'R', percent: 47.1, class:"progress-bar-success"},
+                         { rating: 'PG-13', percent: 30.8, class:"progress-bar-info" },
+                         { rating: 'PG', percent: 11.2, class:"progress-bar-warning" },
+                         { rating: 'G', percent: 1.8 },
+                         { rating: 'NC-17', percent: 0.2 } ].slice(0,3),
                             Polarizing: Polarizing,
                             Histogram: Histogram,
                             Directors: Directors,
@@ -193,7 +205,7 @@ function Middleware(filepath, res) {
             }
             catch (err) {
                 try {
-                    res.send("AN ERROR HAS OCCU")
+                    res.render("error", {err: err});
                 }
                 catch (err) {
                     console.log("err")
@@ -219,7 +231,11 @@ app.post('/home/upload', upload.single('avatar'), function(req, res, next) {
         var filepath = req.file.filename
         console.log(filepath.split('.').pop())
         if(filepath.split('.').pop() != 'csv'){
-            res.send("INVALID FILE")
+             fs.unlink('/uploads/'+filepath, (err) => {
+          if (err) throw err;
+          console.log('successfully deleted input file');
+        });
+            res.render("error", {err: "Please upload a valid .csv file"})
             return null
         }
         Middleware(filepath, res)
@@ -233,5 +249,5 @@ app.post('/home/upload', upload.single('avatar'), function(req, res, next) {
 
 
 server.listen(process.env.PORT, process.env.IP, function() {
-    console.log("The Camp has started!");
+    console.log("Server started!");
 });

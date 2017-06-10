@@ -98,7 +98,7 @@ module.exports =
 
     var z = [];
     y.forEach(function(element) {
-        if ((element.score.length) > 3) {
+        if ((element.score.length) > 2) {
             z.push(element)
         }
     })
@@ -112,8 +112,8 @@ module.exports =
     //console.log(mostProl.slice(0,10))
 
     var ReturnObject = {
-        "TopDirectors": Sort(z, "Average", 5, -1),
-        "WorstDirectors": Sort(z, "Average", 5, 1),
+        "TopDirectors": Sort(z, "Average", 10, -1),
+        "WorstDirectors": Sort(z, "Average", 10, 1),
         "DirectorsLength": y.length,
         "MostProlific": mostProl.slice(0,5),
         "MostControversial": Sort(z, "Stdev", 5, -1)

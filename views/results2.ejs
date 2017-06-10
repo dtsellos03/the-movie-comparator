@@ -1,663 +1,928 @@
 <!DOCTYPE html>
 <html>
-   <title>Movie Ratings Comparator</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+<title>Movie Ratings Comparator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+<link rel="stylesheet" href="/static/css/results.css">
 
-   <style>
-.ui.file.input input[type="file"] {
-    display: none;
-}
-body {
-    padding: 1em;
-}
-.ui.action.input input[type="file"] {
-    display: none;
-}
-.custom {
-    height: 500px;
-}
-#specials {
-    background-color: #d9e6fc;
-    color: black;
-}
-td:hover {
-    color: #0099ff;
-}
-i {
-    color: #38455b;
-}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-      
-   
-      
-   </style>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-   </head>
-   <body >
+</head>
 
-      <div id="teste" style="display: none;">
-      <div class="ui container ">
-          <br><br>
-         <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
-         <hr>
-   <div class="ui sticky"  style="background-color: white;">
-     <div style="background-color: white; height: 10px;"></div>
-         <div class="ui fluid eight item menu" id="dog">
-  <a href="#p55" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
-  <a class="item"><i class="users icon"></i>Actors</a>
-  <a class="item"><i class="user icon"></i>Directors</a>
-   <a class="item"><i class="write icon"></i>Writers</a>
-      <a class="item"><i class="puzzle icon"></i>Genres</a>
-         <a class="item"><i class="bar chart icon"></i>Histogram</a>
-         <a class="item"><i class="low vision icon"></i>MPAA</a>
-            <a class="item"><i class="info icon"></i>Tidbits</a>
- 
-</div>
-     <div>
-       <div style="background-color: white; height: 20px;"><hr></div>
-      
-     </div>
-   
-</div>
+<body>
+
+  <div id="teste" style="display: none;">
+    <div class="ui container ">
+      <br><br>
+      <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
+      <hr>
+      <div class="ui sticky" style="background-color: white;">
+        <div style="background-color: white; height: 10px;"></div>
+        <div class="ui fluid eight item menu" id="dog">
+           
+          <a href="#p55" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
+          
+          <a class="item"><i class="users icon"></i>Actors</a>
+          <a class="item"><i class="user icon"></i>Directors</a>
+          <a class="item"><i class="write icon"></i>Screenwriters</a>
+          <a class="item"><i class="puzzle icon"></i>Genres</a>
+          <a class="item"><i class="bar chart icon"></i>Histogram</a>
+          <a class="item"><i class="low vision icon"></i>MPAA</a>
+          <a class="item"><i class="info icon"></i>Tidbits</a>
+
+        </div>
+        <div>
+          <div style="background-color: white; height: 20px;">
+            <hr>
+          </div>
+
+        </div>
 
       </div>
-      <div id="example1">
+
+    </div>
+    <div id="example1">
       <br> <br> <br>
+
       <div class="ui container ">
-         <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+        <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
       </div>
       <br>
       <div class="ui padded container segment ">
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>You loved, critics hated</h2>
-               <table class="ui celled olive table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Movie</th>
-                        <th>You Rated</th>
-                        <th>Metacritic</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Polarizing["ULOVE-CRITHATE"].forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element["You rated"] %>
-                        </td>
-                        <td>
-                           <%=element.Metacritic %>
-                        </td>
-                     </tr>
-                     <% }); %>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>You loved, critics hated</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>Metacritic</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Polarizing["ULOVE-CRITHATE"].forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element["You rated"] %>
+                  </td>
+                  <td>
+                    <%=element.Metacritic %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>You hated, critics loved</h2>
-               <table class="ui celled teal table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Movie</th>
-                        <th>You Rated</th>
-                        <th>Metacritic</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Polarizing["UHATE-CRITLOVE"].forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element["You rated"] %>
-                        </td>
-                        <td>
-                           <%=element.Metacritic %>
-                        </td>
-                     </tr>
-                     <% }); %>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>You hated, critics loved</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>Metacritic</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Polarizing["UHATE-CRITLOVE"].forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element["You rated"] %>
+                  </td>
+                  <td>
+                    <%=element.Metacritic %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-         </div>
-         <br>
-         <div class="ui horizontal divider">
-         </div>
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>You loved, IMDb hated</h2>
-               <table class="ui celled yellow table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Movie</th>
-                        <th>You Rated</th>
-                        <th>IMDb rating</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Polarizing["ULOVE-IMDBHATE"].forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element["You rated"] %>
-                        </td>
-                        <td>
-                           <%=element["IMDb Rating"]%>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>You hated, IMDb loved</h2>
-               <table class="ui celled orange table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Movie</th>
-                        <th>You Rated</th>
-                        <th>IMDb rating</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Polarizing["UHATE-IMDBLOVE"].forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element["You rated"] %>
-                        </td>
-                        <td>
-                           <%=element["IMDb Rating"]%>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-      </div>
-      <br>
-       <br>
-      <div class="ui container ">
-         <h2 class="ui header"><i class="users icon"></i>Actor/Actresses</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
-      </div>
-      <br>
-      <div class="ui  padded container segment">
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>Your top rated actors</h2>
-               <table class="ui celled blue table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Actor</th>
-                        <th>Average score</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Actors.TopActors.forEach(function(element){ %>
-                     <tr>
-                        <td data-tooltip="<%=element.title%>" data-position="top right">
-                           <%=element.Actors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Your lowest rated actors</h2>
-               <table class="ui celled violet table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Actor</th>
-                        <th>Average score</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Actors.WorstActors.forEach(function(element){ %>
-                     <tr>
-                        <td data-tooltip="<%=element.title%>" data-position="top right">
-                           <%=element.Actors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-         <br>
-         <hr>
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2> Prolific actors</h2>
-               <table class="ui celled green table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Actor</th>
-                        <th>Average rating</th>
-                        <th>Number of films</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
-                     <tr>
-                        <td style="cursor:pointer" class="super" data-html="
-                           <div class='ui divided list'>
-                             <div class='item'>
-    <div class='header'>Filmography</div>
-  </div>
-                           <% element.title.forEach(function(el){ %>
-                           <div class='item'>
-                        <i class='film icon'></i>   <%=el%>
-                           </div>
-                           <% }); %>
-                           </div>
-                           ">
-                           <%=element.Actors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                        <td>
-                           <%=element.score.length %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Polarizing actors</h2>
-               <table class="ui celled pink table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Actor</th>
-                        <th>Average rating</th>
-                        <th>Standard dev.</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
-                     <tr>
-                          <td style="cursor:pointer" class="super" data-html="
-                           <div class='ui divided list'>
-                             <div class='item'>
-    <div class='header'>Filmography</div>
-  </div>
-                           <% element.title.forEach(function(el){ %>
-                           <div class='item'>
-                        <i class='film icon'></i>   <%=el%>
-                           </div>
-                           <% }); %>
-                           </div>
-                           ">
-                           <%=element.Actors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                        <td>
-                           <%=element.Stdev %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-      </div>
-         <br>
-       <br>
-           <div class="ui container ">
-         <h2 class="ui header"><i class="user icon"></i>Directors</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
-      </div>
-      <br>
-      <div class="ui  padded container segment">
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>Your top rated directors</h2>
-               <table class="ui celled blue table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Director</th>
-                        <th>Average score</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Directors.TopDirectors.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Directors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Your lowest rated directors</h2>
-               <table class="ui celled violet table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Director</th>
-                        <th>Average score</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Directors.WorstDirectors.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Directors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-         <br>
-         <hr>
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2> Prolific directors</h2>
-               <table class="ui celled green table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Director</th>
-                        <th>Average rating</th>
-                        <th>Number of films</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Directors.MostProlific.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Directors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                        <td>
-                           <%=element.score.length %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Polarizing directors</h2>
-               <table class="ui celled pink table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Director</th>
-                        <th>Average rating</th>
-                        <th>Standard dev.</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Directors.MostControversial.forEach(function(element){ %>
-                     <tr>
-                        <td data-tooltip="<%=element.title%>" data-position="top right">
-                           <%=element.Directors %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                        <td>
-                           <%=element.Stdev %>
-                        </td>
-                     </tr>
-                     <% }); %>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-      </div>
-       <br> <br>
-                <div class="ui container ">
-         <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
-      </div>
+            </table>
+          </div>
+        </div>
         <br>
-       <br>
-      <div class="ui  padded container segment">
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>Your rating distribution</h2>
-            </div>
-            <div class="eight wide column">
-               <h2>IMDb ratings distribution</h2>
-            </div>
-         </div>
-         <br>
-         <hr>
+        <div class="ui horizontal divider">
+        </div>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>You loved, IMDb hated</h2>
+            <table class="ui celled yellow table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>IMDb rating</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Polarizing["ULOVE-IMDBHATE"].forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element["You rated"] %>
+                  </td>
+                  <td>
+                    <%=element["IMDb Rating"]%>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>You hated, IMDb loved</h2>
+            <table class="ui celled orange table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>IMDb rating</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Polarizing["UHATE-IMDBLOVE"].forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element["You rated"] %>
+                  </td>
+                  <td>
+                    <%=element["IMDb Rating"]%>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       <br>
-       <br>
-                 <div class="ui container ">
-         <h2 class="ui header"><i class="puzzle icon"></i>Genres</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="users icon"></i>Actor/Actresses</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
       </div>
       <br>
-      
       <div class="ui  padded container segment">
-         
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>Top viewed genres</h2>
-               <table class="ui celled teal table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Genre</th>
-                        <th>Percent viewed</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Genre.TopRunTime.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Genres %>
-                        </td>
-                        <td>
-                           <%=element["Runtime Percent"] %>
-                        </td>
-                     </tr>
-                     <% }); %>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated actors</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Actors.TopActors.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Actors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Top rated genres</h2>
-               <table class="ui celled olive table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Genre</th>
-                        <th>Average score</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Genre.TopScore.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Genres %>
-                        </td>
-                        <td>
-                           <%=element.Average %>
-                        </td>
-                     </tr>
-                     <% }); %>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated actors</h2>
+            <table class="ui celled violet table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Actors.WorstActors.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Actors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-         </div>
-         <br>
-         <hr>
-      </div>
-       <br> <br>
-                 <div class="ui container ">
-         <h2 class="ui header"><i class="low vision icon"></i>MPAA Ratings</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific actors</h2>
+            <table class="ui celled green table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Actors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.score.length %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing actors</h2>
+            <table class="ui celled pink table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Actors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.Stdev %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       <br>
-      
-      <div class="ui  padded container segment">
-       
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>MPAA ratings of your films</h2>
-               <div class="progress" style="margin: 3px; height:20px;">
-                  <div class="progress-bar progress-bar-success" role="progressbar" style="width: 80%;">
-                     PG-13
-                  </div>
-                  <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 20%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
-                     56 %
-                  </div>
-               </div>
-               <div class="progress" style="margin: 3px;">
-                  <div class="progress-bar progress-bar-success" role="progressbar" style="width: 80%;">
-                     R
-                  </div>
-                  <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 20%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
-                     56 %
-                  </div>
-               </div>
-            </div>
-            <div class="eight wide column">
-               <h2>MPAA ratings of top 10,00 IMDb films</h2>
-            </div>
-         </div>
-         <br>
-         <hr>
-      </div>
-       <br> <br>
-                 <div class="ui container ">
-         <h2 class="ui header"><i class="info icon"></i>Tidbits</h2>
-         <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="user icon"></i>Directors</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
       </div>
       <br>
-      
       <div class="ui  padded container segment">
-         <div class="ui statistics">
-            <div class="statistic">
-               <div class="value">
-                  <i class="film icon"></i> <%= ReturnObj.Tidbits.totalMovies %>
-               </div>
-               <div class="label">
-                  Films
-               </div>
-            </div>
-            <div class="statistic">
-               <div class="value">
-                  <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
-                  <%= Math.round(ReturnObj.Tidbits.totalRuntime/60) %>
-               </div>
-               <div class="label">
-                  hours
-               </div>
-            </div>
-         </div>
-         <div class="ui grid ">
-            <div class="eight wide column">
-               <h2>Longest films you've seen</h2>
-               <table class="ui celled teal table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Film</th>
-                        <th>Runtime (minutes)</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Tidbits.longMovies.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element["Runtime (mins)"] %>
-                        </td>
-                     </tr>
-                     <% }); %>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated directors</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Directors.TopDirectors.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Directors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-            <div class="eight wide column">
-               <h2>Obscure films you've seen</h2>
-               <table class="ui celled olive table" style="width: 100%;">
-                  <thead>
-                     <tr>
-                        <th>Film</th>
-                        <th>IMDb votes</th>
-                     </tr>
-                  <tbody>
-                     </thead>
-                     <% ReturnObj.Tidbits.obscureMovies.forEach(function(element){ %>
-                     <tr>
-                        <td>
-                           <%=element.Title %>
-                        </td>
-                        <td>
-                           <%=element.Num %>
-                        </td>
-                     </tr>
-                     <% }); %>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated directors</h2>
+            <table class="ui celled violet table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Directors.WorstDirectors.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Directors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
                   </tbody>
-               </table>
-            </div>
-         </div>
-         <br>
-         <hr>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific directors</h2>
+            <table class="ui celled green table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Directors.MostProlific.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Directors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.score.length %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing directors</h2>
+            <table class="ui celled pink table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Directors.MostControversial.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Directors %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.Stdev %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-      <script>$('.super').popup({
-         on: 'click',
-         position: 'top left'
-         });
-         ;
-      </script>
-      <script>
-         
-               $(document).ready(function(){
-     $('.ui.sticky')
-  .sticky({
-    context: '#example1'
-  });
+      <br> <br>
 
- })
-         
-      </script>
-      
-      <script>
-         $(document).ready(function(){
-    $("#teste").hide(0).delay(0).fadeIn(700)
-});
-      </script>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="write icon"></i>Screenwriters</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      </div>
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated screenwriters</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Writers.TopWriters.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Writers %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated screenwriters</h2>
+            <table class="ui celled violet table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Writers.WorstWriters.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Writers %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific screenwriters</h2>
+            <table class="ui celled green table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Writers.MostProlific.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Writers %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.score.length %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing screenwriters</h2>
+            <table class="ui celled pink table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Writers.MostControversial.forEach(function(element){ %>
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           <% element.title.forEach(function(el){ %>
+                           <div class='item'>
+                        <i class='film icon'></i>   <%=el%>
+                           </div>
+                           <% }); %>
+                           </div>
+                           ">
+                    <%=element.Writers %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                  <td>
+                    <%=element.Stdev %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="ui container ">
+        <h2 class="ui header"><i class="puzzle icon"></i>Genres</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Top viewed genres</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Percent viewed</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Genre.TopRunTime.forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Genres %>
+                  </td>
+                  <td>
+                    <%=element["Runtime Percent"] %> %
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Top rated genres</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Genre.TopScore.forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Genres %>
+                  </td>
+                  <td>
+                    <%=element.Average %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      </div>
+      <br>
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your rating distribution</h2>
+            <div id="columnchart_values"></div>
+            <h4 class="ui header center aligned">Your average rating is <%=ReturnObj.Histogram.MyAverage%></h4>
+          </div>
+          <div class="eight wide column">
+            <h2>IMDb ratings distribution</h2>
+            <div id="columnchart_values2"></div>
+            <h4 class="ui header center aligned">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
 
 
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="low vision icon"></i>MPAA Ratings</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>MPAA ratings of your films</h2>
+
+
+
+            <% ReturnObj.Ratings.forEach(function(element){ %>
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar <%=element.class%>" role="progressbar" style="width: <%=element.percent%>%;">
+                  <%= element.rating %>
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: <%= 100-element.percent%>%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  <%= element.percent %>
+                </div>
+              </div>
+
+
+              <% }); %>
+
+
+          </div>
+          <div class="eight wide column">
+            <h2>MPAA ratings of top 10,00 IMDb films</h2>
+
+            <% ReturnObj.IMDBRatings.forEach(function(element){ %>
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar <%=element.class%>" role="progressbar" style="width: <%=element.percent%>%;">
+                  <%= element.rating %>
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: <%= 100-element.percent%>%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  <%= element.percent %>
+                </div>
+              </div>
+
+
+              <% }); %>
+
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="info icon"></i>Tidbits</h2>
+        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+        <div class="ui statistics">
+          <div class="statistic">
+            <div class="value">
+              <i class="film icon"></i>
+              <%= ReturnObj.Tidbits.totalMovies %>
+            </div>
+            <div class="label">
+              Films
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <i class="hourglass full icon"></i>
+              <%= Math.round(ReturnObj.Tidbits.totalRuntime/60) %>
+            </div>
+            <div class="label">
+              hours
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Longest films you've seen</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Film</th>
+                  <th>Runtime (minutes)</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Tidbits.longMovies.forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element["Runtime (mins)"] %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Obscure films you've seen</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Film</th>
+                  <th>IMDb votes</th>
+                </tr>
+                <tbody>
+              </thead>
+              <% ReturnObj.Tidbits.obscureMovies.forEach(function(element){ %>
+                <tr>
+                  <td>
+                    <%=element.Title %>
+                  </td>
+                  <td>
+                    <%=element.Num %>
+                  </td>
+                </tr>
+                <% }); %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/results.js"></script>
+
+
+  <script>
+    google.charts.load("current", {
+      packages: ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawMYChart);
+    google.charts.setOnLoadCallback(drawIMDBChart);
+
+    function drawMYChart() {
+      var array2 = <%-JSON.stringify(ReturnObj.Histogram.MyScores)%>
+
+
+      var data = google.visualization.arrayToDataTable(array2);
+
+      var view = new google.visualization.DataView(data);
+
+
+      var options = {
+        height: 300,
+        bar: {
+          groupWidth: "95%"
+        },
+        legend: {
+          position: "none"
+        },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+    }
+
+    function drawIMDBChart() {
+      var array3 = <%-JSON.stringify(ReturnObj.Histogram.IMDBScores)%>
+
+
+      var data = google.visualization.arrayToDataTable(array3);
+
+      var view = new google.visualization.DataView(data);
+
+
+      var options = {
+        height: 300,
+        bar: {
+          groupWidth: "95%"
+        },
+        legend: {
+          position: "none"
+        },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+      chart.draw(view, options);
+    }
+  </script>
+</body>

@@ -1,0 +1,34 @@
+.ui.file.input input[type="file"] {
+    display: none;
+}
+body {
+    padding: 1em;
+}
+.ui.action.input input[type="file"] {
+    display: none;
+}
+.custom {
+    height: 500px;
+}
+#specials {
+    background-color: #d9e6fc;
+    color: black;
+}
+td:hover {
+    color: #0099ff;
+}
+i {
+    color: #38455b;
+}
+
+
+
+.progress-bar:nth-of-type(2) {
+    background: red;
+    color: red;
+}
+
+.progress-bar:nth-of-type(3) {
+    background: blue;
+    color: blue;
+}

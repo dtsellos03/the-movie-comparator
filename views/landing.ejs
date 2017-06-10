@@ -1,29 +1,9 @@
-<% include partials/header %>
+
     <script src="/socket.io/socket.io.js"></script>
 
    <title>Movie Ratings Comparator</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
-        
-        <style>
-        
-.ui.file.input input[type="file"] {
-    display: none;
-}
-
-
-body {
-  padding: 1em;
-}
-
-.ui.action.input input[type="file"] {
-  display: none;
-}
-
-.custom {
-    height: 500px;
-}
-</style> 
-
+           <link rel="stylesheet" href="/static/css/landing.css">
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
@@ -221,61 +201,6 @@ body {
 </div>
     
     
-    <script>
-  var socket = io.connect('https://imdb-comparator-dtsellos03.c9users.io/');
-  socket.on('connect', function(){});
-  socket.on('message', function(data){
-      console.log(data+"%")
-     $("#test1").text(data);
-     $('#example4').progress({
-  percent: data
-});
-  });
-  socket.on('disconnect', function(){});
-</script>
-
-
-    <script>
-        $('#toggle').click(function(){ $('.ui.dimmer').dimmer("toggle")})
-    
-     $('#toggle2').click(function(){ $('.ui.modal.guide')
-  .modal('show')})
-;
-
-     $('#toggle3').click(function(){ $('.ui.modal.about')
-  .modal('show')})
-;
-    
-    </script>
-    
-    <script>
-$('.ui.file.input').find('input:text, .ui.button')
-  .on('click', function(e) {
-    $(e.target).parent().find('input:file').click();
-  })
-;
-
-$('input:file', '.ui.file.input')
-  .on('change', function(e) {
-    var file = $(e.target);
-    var name = '';
-
-    for (var i=0; i<e.target.files.length; i++) {
-      name += e.target.files[i].name + ', ';
-    }
-    // remove trailing ","
-    name = name.replace(/,\s*$/, '');
-
-		$('input:text', file.parent()).val(name);
-  })
-;
-
-</script>
-
-<script>
-    $('input:file').on("change", function() {
-    $('.submitbutton').prop('disabled', !$(this).val()); 
-});
-</script>
+       <script src="/static/js/landing.js"></script>  
     
 </html>
