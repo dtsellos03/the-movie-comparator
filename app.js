@@ -61,7 +61,13 @@ app.get("/", function(req, res) {
     res.render("landing");
 });
 
+app.get("/sampleresults", function(req, res) {
+    res.render("sampleresults");
+});
 
+app.get('*', function(req, res){
+  res.render("landing");
+});
 
 
 function Middleware(filepath, res) {

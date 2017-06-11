@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>Movie Ratings Comparator</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
 <link rel="stylesheet" href="/static/css/results.css">
 
@@ -12,8 +12,33 @@
 </head>
 
 <body>
+  
+
 
   <div id="teste" style="display: none;">
+    
+    
+             <div class="ui small modal info">
+
+    <div class="image content">
+    <div class="image">
+      <img class="ui bordered image" style="width: 400px;" src="/static/images/clickformore.gif"></img>
+    </div>
+    <div class="description">
+         <h1>More info</h1>
+        <p>Click on an actor, writer, or screenwriter for their filmography</p>
+ <br><br>
+  <div class="actions">
+    <div class="ui huge approve button">Got it!</div>
+  </div>
+
+</div>
+  </div>
+</div>
+
+    
+    
+    
     <div class="ui container ">
       <br><br>
       <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
@@ -48,7 +73,7 @@
 
       <div class="ui container ">
         <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+       
       </div>
       <br>
       <div class="ui padded container segment ">
@@ -172,7 +197,7 @@
       <br>
       <div class="ui container ">
         <h2 class="ui header"><i class="users icon"></i>Actor/Actresses</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+  
       </div>
       <br>
       <div class="ui  padded container segment">
@@ -331,7 +356,7 @@
       <br>
       <div class="ui container ">
         <h2 class="ui header"><i class="user icon"></i>Directors</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+        
       </div>
       <br>
       <div class="ui  padded container segment">
@@ -490,7 +515,7 @@
 
       <div class="ui container ">
         <h2 class="ui header"><i class="write icon"></i>Screenwriters</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+  
       </div>
       <br>
       <div class="ui  padded container segment">
@@ -649,7 +674,7 @@
 
       <div class="ui container ">
         <h2 class="ui header"><i class="puzzle icon"></i>Genres</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+       
       </div>
       <br>
 
@@ -710,21 +735,21 @@
       <br> <br>
       <div class="ui container ">
         <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      
       </div>
-      <br>
+
       <br>
       <div class="ui  padded container segment">
         <div class="ui grid ">
           <div class="eight wide column">
             <h2>Your rating distribution</h2>
             <div id="columnchart_values"></div>
-            <h4 class="ui header center aligned">Your average rating is <%=ReturnObj.Histogram.MyAverage%></h4>
+            <h4 class="ui header " style="margin-left: 60px;">Your average rating is <%=ReturnObj.Histogram.MyAverage%></h4>
           </div>
           <div class="eight wide column">
             <h2>IMDb ratings distribution</h2>
             <div id="columnchart_values2"></div>
-            <h4 class="ui header center aligned">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
+            <h4 class="ui header" style="margin-left: 60px;">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
           </div>
         </div>
         <br>
@@ -735,7 +760,7 @@
       <br> <br>
       <div class="ui container ">
         <h2 class="ui header"><i class="low vision icon"></i>MPAA Ratings</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+      
       </div>
       <br>
 
@@ -764,7 +789,7 @@
 
           </div>
           <div class="eight wide column">
-            <h2>MPAA ratings of top 10,00 IMDb films</h2>
+            <h2>MPAA ratings of top 10,000 IMDb films</h2>
 
             <% ReturnObj.IMDBRatings.forEach(function(element){ %>
 
@@ -788,7 +813,7 @@
       <br> <br>
       <div class="ui container ">
         <h2 class="ui header"><i class="info icon"></i>Tidbits</h2>
-        <p>Many things can be confusing in film, and polarizing things are exceptionally confusing in the way that this is sample text.</p>
+       
       </div>
       <br>
 
@@ -867,6 +892,9 @@
       </div>
     </div>
   </div>
+
+
+
 
   <script src="/static/js/results.js"></script>
 

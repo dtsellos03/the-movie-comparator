@@ -1,3 +1,9 @@
+      $('.ui.modal.info')
+  .modal('show')
+;
+    
+    
+    
       $('.super').popup({
           on: 'click',
           position: 'top left'
@@ -11,6 +17,8 @@
               });
 
       })
+      
+
 
 
       $(document).ready(function() {
