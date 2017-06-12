@@ -1,0 +1,4684 @@
+
+<!DOCTYPE html>
+<html>
+<title>Movie Ratings Comparator</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+<link rel="stylesheet" href="/static/css/results.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+<body>
+  
+
+
+  <div id="teste" style="display: none;">
+   
+    
+             <div class="ui small modal info">
+
+    <div class="image content">
+    <div class="image">
+      <img class="ui bordered image" style="width: 400px;" src="/static/images/clickformore.gif"></img>
+    </div>
+    <div class="description">
+         <h1>More info</h1>
+        <p>Click on an actor, writer, or screenwriter for their filmography</p>
+ <br><br>
+  <div class="actions">
+    <div class="ui huge approve button">Got it!</div>
+  </div>
+
+</div>
+  </div>
+</div>
+
+      <a name="polarizing" style="visibility: hidden"></a>
+    
+    
+    <div class="ui container">
+      <br><br>
+      <h1 class="ui huge header"><i class="film icon"></i>Sample results</h1>
+      <hr>
+     </div>
+        <div class="ui container" style="width: 1300px;">
+      <div class="ui sticky" style="background-color: white;">
+        
+        <div style="background-color: white; height: 10px; width: 1800px;"></div>
+        <div class="ui fluid eight item menu" id="dog">
+           
+          <a href="#polarizing" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
+          <a href="#actors" class="item"><i class="users icon"></i>Actors</a>
+          <a href="#directors" class="item"><i class="user icon"></i>Directors</a>
+          <a href="#screenwriters" class="item"><i class="write icon"></i>Screenwriters</a>
+          <a href="#genres" class="item"><i class="puzzle icon"></i>Genres</a>
+          <a href="#histogram" class="item"><i class="bar chart icon"></i>Histogram</a>
+          <a href="#mpaa" class="item"><i class="low vision icon"></i>MPAA</a>
+          <a href="#tidbits" class="item"><i class="info icon"></i>Tidbits</a>
+
+        </div>
+        <div>
+          <div style="background-color: white; height: 70px;">
+              <a class="ui huge primary button" href="/">Back</a>
+            <hr>
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+     <div class="ui container ">
+
+    </div>
+    <div id="example1">
+      <br> <br> <br>
+
+      <div class="ui container ">
+        <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
+       
+      </div>
+      <br>
+      <div class="ui padded container segment ">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>You loved, critics hated</h2>
+            <table class="ui celled red table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>Metacritic</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Equilibrium
+                  </td>
+                  <td>
+                    8
+                  </td>
+                  <td>
+                    33/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    The Ninth Gate
+                  </td>
+                  <td>
+                    9
+                  </td>
+                  <td>
+                    44/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Kung Pow: Enter the Fist
+                  </td>
+                  <td>
+                    6
+                  </td>
+                  <td>
+                    14/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Event Horizon
+                  </td>
+                  <td>
+                    8
+                  </td>
+                  <td>
+                    35/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Gamer
+                  </td>
+                  <td>
+                    7
+                  </td>
+                  <td>
+                    27/100
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>You hated, critics loved</h2>
+            <table class="ui celled orange table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>Metacritic</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Captain America: Civil War
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    75/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Avengers: Age of Ultron
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    66/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Superman II
+                  </td>
+                  <td>
+                    4
+                  </td>
+                  <td>
+                    87/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Get Him to the Greek
+                  </td>
+                  <td>
+                    2
+                  </td>
+                  <td>
+                    65/100
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Zero Dark Thirty
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    95/100
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <div class="ui horizontal divider">
+        </div>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>You loved, IMDb hated</h2>
+            <table class="ui celled yellow table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>IMDb rating</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    The Room
+                  </td>
+                  <td>
+                    10
+                  </td>
+                  <td>
+                    3.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Birdemic: Shock and Terror
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    1.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Upstream Color
+                  </td>
+                  <td>
+                    10
+                  </td>
+                  <td>
+                    6.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    The Last Minute
+                  </td>
+                  <td>
+                    9
+                  </td>
+                  <td>
+                    5.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Enemy
+                  </td>
+                  <td>
+                    10
+                  </td>
+                  <td>
+                    6.9
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>You hated, IMDb loved</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>You Rated</th>
+                  <th>IMDb rating</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Captain America: Civil War
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    7.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    The Notebook
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    7.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Avengers: Age of Ultron
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    7.4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    In Time
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    6.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Indiana Jones and the Last Crusade
+                  </td>
+                  <td>
+                    3
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+               
+                  </tbody>
+                    <a name="actors" style="visibility: hidden"></a>
+            </table>
+            
+          </div>
+        </div>
+             <br>
+        <hr>
+      </div>
+      <br>
+      <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="users icon"></i>Actor/Actresses</h2>
+  
+      </div>
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated actors</h2>
+            <table class="ui celled green table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sympathy for Mr. Vengeance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thirst
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Snowpiercer
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   J.S.A.: Joint Security Area
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Memories of Murder
+                           </div>
+                           
+                           </div>
+                           ">
+                    Kang-ho Song
+                  </td>
+                  <td>
+                    8.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Moon
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   American Beauty
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Se7en
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   L.A. Confidential
+                           </div>
+                           
+                           </div>
+                           ">
+                    Kevin Spacey
+                  </td>
+                  <td>
+                    8.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Revenant
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Mad Max: Fury Road
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Layer Cake
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Bronson
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Inception
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight Rises
+                           </div>
+                           
+                           </div>
+                           ">
+                    Tom Hardy
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Cowboy Bebop: The Movie
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell 2: Innocence
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Paprika
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell 2.0
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ninja Scroll
+                           </div>
+                           
+                           </div>
+                           ">
+                    Kôichi Yamadera
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prisoners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prince of Persia: The Sands of Time
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Nightcrawler
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Zodiac
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Enemy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   End of Watch
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Donnie Darko
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Source Code
+                           </div>
+                           
+                           </div>
+                           ">
+                    Jake Gyllenhaal
+                  </td>
+                  <td>
+                    8.1
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   John Wick
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Played with Fire
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Kicked the Hornet&#39;s Nest
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl with the Dragon Tattoo
+                           </div>
+                           
+                           </div>
+                           ">
+                    Michael Nyqvist
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fountain
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Interstellar
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Requiem for a Dream
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Exorcist
+                           </div>
+                           
+                           </div>
+                           ">
+                    Ellen Burstyn
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Children of Men
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Harry Brown
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Prestige
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman Begins
+                           </div>
+                           
+                           </div>
+                           ">
+                    Michael Caine
+                  </td>
+                  <td>
+                    7.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prometheus
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sherlock Holmes: A Game of Shadows
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Played with Fire
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Kicked the Hornet&#39;s Nest
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl with the Dragon Tattoo
+                           </div>
+                           
+                           </div>
+                           ">
+                    Noomi Rapace
+                  </td>
+                  <td>
+                    7.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lady Vengeance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lucy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Oldboy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   I Saw the Devil
+                           </div>
+                           
+                           </div>
+                           ">
+                    Min-sik Choi
+                  </td>
+                  <td>
+                    7.5
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated actors</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw VI
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw V
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw 3D: The Final Chapter
+                           </div>
+                           
+                           </div>
+                           ">
+                    Betsy Russell
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw VI
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw V
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw 3D: The Final Chapter
+                           </div>
+                           
+                           </div>
+                           ">
+                    Costas Mandylor
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Captain America: Civil War
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Snowpiercer
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four: Rise of the Silver Surfer
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chris Evans
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw III
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw II
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw VI
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw V
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw 3D: The Final Chapter
+                           </div>
+                           
+                           </div>
+                           ">
+                    Tobin Bell
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Twilight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Eclipse
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: New Moon
+                           </div>
+                           
+                           </div>
+                           ">
+                    Kristen Stewart
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Constantine
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers: Dark of the Moon
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers: Revenge of the Fallen
+                           </div>
+                           
+                           </div>
+                           ">
+                    Shia LaBeouf
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Twilight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 1
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Eclipse
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: New Moon
+                           </div>
+                           
+                           </div>
+                           ">
+                    Billy Burke
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Stardust
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: The Last Stand
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men 2
+                           </div>
+                           
+                           </div>
+                           ">
+                    Ian McKellen
+                  </td>
+                  <td>
+                    4.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Mask
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Truman Show
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Eternal Sunshine of the Spotless Mind
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Liar Liar
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ace Ventura: Pet Detective
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dumb &amp; Dumber
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Me, Myself &amp; Irene
+                           </div>
+                           
+                           </div>
+                           ">
+                    Jim Carrey
+                  </td>
+                  <td>
+                    4.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil: The Final Chapter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil: Afterlife
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fifth Element
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil: Extinction
+                           </div>
+                           
+                           </div>
+                           ">
+                    Milla Jovovich
+                  </td>
+                  <td>
+                    5
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific actors</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Captain America: Civil War
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Zodiac
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kiss Kiss Bang Bang
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sherlock Holmes
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sherlock Holmes: A Game of Shadows
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   A Scanner Darkly
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 2
+                           </div>
+                           
+                           </div>
+                           ">
+                    Robert Downey Jr.
+                  </td>
+                  <td>
+                    5.3
+                  </td>
+                  <td>
+                    11
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   3:10 to Yuma
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Reign of Fire
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Equilibrium
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Prestige
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fighter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Machinist
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight Rises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   American Psycho
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman Begins
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   American Hustle
+                           </div>
+                           
+                           </div>
+                           ">
+                    Christian Bale
+                  </td>
+                  <td>
+                    7.4
+                  </td>
+                  <td>
+                    11
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Logan
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prisoners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fountain
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Prestige
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: Days of Future Past
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men Origins: Wolverine
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: The Last Stand
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Van Helsing
+                           </div>
+                           
+                           </div>
+                           ">
+                    Hugh Jackman
+                  </td>
+                  <td>
+                    6.5
+                  </td>
+                  <td>
+                    10
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Wolf of Wall Street
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Revenant
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Shutter Island
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Departed
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Gangs of New York
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blood Diamond
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Inception
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Titanic
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Django Unchained
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Man in the Iron Mask
+                           </div>
+                           
+                           </div>
+                           ">
+                    Leonardo DiCaprio
+                  </td>
+                  <td>
+                    6.9
+                  </td>
+                  <td>
+                    10
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+                               <div class='header'>Filmography</div>
+                             </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Secret Window
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Alice in Wonderland
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   From Hell
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: Dead Man&#39;s Chest
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Ninth Gate
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: The Curse of the Black Pearl
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: At World&#39;s End
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transcendence
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: On Stranger Tides
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sleepy Hollow
+                           </div>
+                           
+                           </div>
+                           ">
+                    Johnny Depp
+                  </td>
+                  <td>
+                    5.9
+                  </td>
+                  <td>
+                    10
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing actors</h2>
+            <table class="ui celled violet table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Actor</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman v Superman: Dawn of Justice
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Gone Girl
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Good Will Hunting
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Armageddon
+                           </div>
+                           
+                           </div>
+                           ">
+                    Ben Affleck
+                  </td>
+                  <td>
+                    6.3
+                  </td>
+                  <td>
+                    3.1
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Captain America: Civil War
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Under the Skin
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lost in Translation
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lucy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 2
+                           </div>
+                           
+                           </div>
+                           ">
+                    Scarlett Johansson
+                  </td>
+                  <td>
+                    5.4
+                  </td>
+                  <td>
+                    3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Rush
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor: The Dark World
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Cabin in the Woods
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chris Hemsworth
+                  </td>
+                  <td>
+                    5.2
+                  </td>
+                  <td>
+                    2.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sicario
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   No Country for Old Men
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Old Boy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   True Grit
+                           </div>
+                           
+                           </div>
+                           ">
+                    Josh Brolin
+                  </td>
+                  <td>
+                    7
+                  </td>
+                  <td>
+                    2.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Shutter Island
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Zodiac
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Now You See Me
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                           </div>
+                           ">
+                    Mark Ruffalo
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    2.7
+                  </td>
+                </tr>
+                
+                    <a name="directors" style="visibility: hidden"></a>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+             <br>
+        <hr>
+      </div>
+      <br>
+      <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="user icon"></i>Directors</h2>
+        
+      </div>
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated directors</h2>
+            <table class="ui celled purple table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   J.S.A.: Joint Security Area
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Oldboy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sympathy for Mr. Vengeance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thirst
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Handmaiden
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Stoker
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chan-wook Park
+                  </td>
+                  <td>
+                    9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Arrival
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prisoners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sicario
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Enemy
+                           </div>
+                           
+                           </div>
+                           ">
+                    Denis Villeneuve
+                  </td>
+                  <td>
+                    9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell 2: Innocence
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ghost in the Shell 2.0
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avalon
+                           </div>
+                           
+                           </div>
+                           ">
+                    Mamoru Oshii
+                  </td>
+                  <td>
+                    8.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Slumdog Millionaire
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   127 Hours
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sunshine
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Trainspotting
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   28 Days Later...
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Trance
+                           </div>
+                           
+                           </div>
+                           ">
+                    Danny Boyle
+                  </td>
+                  <td>
+                    8.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Mother
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Memories of Murder
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Host
+                           </div>
+                           
+                           </div>
+                           ">
+                    Joon Ho Bong
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Monty Python and the Holy Grail
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Brazil
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Twelve Monkeys
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Imaginarium of Doctor Parnassus
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Zero Theorem
+                           </div>
+                           
+                           </div>
+                           ">
+                    Terry Gilliam
+                  </td>
+                  <td>
+                    8.2
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Requiem for a Dream
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Black Swan
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Wrestler
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pi
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fountain
+                           </div>
+                           
+                           </div>
+                           ">
+                    Darren Aronofsky
+                  </td>
+                  <td>
+                    8.2
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fly
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Naked Lunch
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Brood
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Videodrome
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dead Zone
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   eXistenZ
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Scanners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Eastern Promises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   A History of Violence
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Crash
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Ringers
+                           </div>
+                           
+                           </div>
+                           ">
+                    David Cronenberg
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Run Lola Run
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Cloud Atlas
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Perfume: The Story of a Murderer
+                           </div>
+                           
+                           </div>
+                           ">
+                    Tom Tykwer
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ninja Scroll
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Wicked City
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Vampire Hunter D: Bloodlust
+                           </div>
+                           
+                           </div>
+                           ">
+                    Yoshiaki Kawajiri
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated directors</h2>
+            <table class="ui celled pink table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw III
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw II
+                           </div>
+                           
+                           </div>
+                           ">
+                    Darren Lynn Bousman
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lara Croft: Tomb Raider
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Expendables 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Con Air
+                           </div>
+                           
+                           </div>
+                           ">
+                    Simon West
+                  </td>
+                  <td>
+                    3.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers: Dark of the Moon
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transformers: Revenge of the Fallen
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Armageddon
+                           </div>
+                           
+                           </div>
+                           ">
+                    Michael Bay
+                  </td>
+                  <td>
+                    3.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dumb &amp; Dumber
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Me, Myself &amp; Irene
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kingpin
+                           </div>
+                           
+                           </div>
+                           ">
+                    Peter Farrelly
+                  </td>
+                  <td>
+                    4.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hangover
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hangover Part II
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Road Trip
+                           </div>
+                           
+                           </div>
+                           ">
+                    Todd Phillips
+                  </td>
+                  <td>
+                    4.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Incredible Hulk
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Now You See Me
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Transporter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transporter 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Clash of the Titans
+                           </div>
+                           
+                           </div>
+                           ">
+                    Louis Leterrier
+                  </td>
+                  <td>
+                    4.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman v Superman: Dawn of Justice
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Man of Steel
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   300
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Watchmen
+                           </div>
+                           
+                           </div>
+                           ">
+                    Zack Snyder
+                  </td>
+                  <td>
+                    5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil: The Final Chapter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Resident Evil: Afterlife
+                           </div>
+                           
+                           </div>
+                           ">
+                    Paul W.S. Anderson
+                  </td>
+                  <td>
+                    5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ocean&#39;s Eleven
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ocean&#39;s Thirteen
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ocean&#39;s Twelve
+                           </div>
+                           
+                           </div>
+                           ">
+                    Steven Soderbergh
+                  </td>
+                  <td>
+                    5.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pixels
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Bicentennial Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Harry Potter and the Sorcerer&#39;s Stone
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Harry Potter and the Chamber of Secrets
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chris Columbus
+                  </td>
+                  <td>
+                    5.3
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific directors</h2>
+            <table class="ui celled violet table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fly
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Naked Lunch
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Brood
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Videodrome
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dead Zone
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   eXistenZ
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Scanners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Eastern Promises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   A History of Violence
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Crash
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Ringers
+                           </div>
+                           
+                           </div>
+                           ">
+                    David Cronenberg
+                  </td>
+                  <td>
+                    8
+                  </td>
+                  <td>
+                    11
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Death Proof
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Django Unchained
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Reservoir Dogs
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Inglourious Basterds
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pulp Fiction
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hateful Eight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kill Bill: Vol. 1
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kill Bill: Vol. 2
+                           </div>
+                           
+                           </div>
+                           ">
+                    Quentin Tarantino
+                  </td>
+                  <td>
+                    7
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman Begins
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Inception
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Interstellar
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Memento
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight Rises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Prestige
+                           </div>
+                           
+                           </div>
+                           ">
+                    Christopher Nolan
+                  </td>
+                  <td>
+                    7.9
+                  </td>
+                  <td>
+                    7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pacific Rim
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Hellboy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blade II
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Cronos
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Crimson Peak
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pan&#39;s Labyrinth
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Hellboy II: The Golden Army
+                           </div>
+                           
+                           </div>
+                           ">
+                    Guillermo del Toro
+                  </td>
+                  <td>
+                    7.3
+                  </td>
+                  <td>
+                    7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Indiana Jones and the Last Crusade
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Raiders of the Lost Ark
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Indiana Jones and the Temple of Doom
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Jaws
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Schindler&#39;s List
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Jurassic Park
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Minority Report
+                           </div>
+                           
+                           </div>
+                           ">
+                    Steven Spielberg
+                  </td>
+                  <td>
+                    5.6
+                  </td>
+                  <td>
+                    7
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing directors</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Director</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw III
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw II
+                           </div>
+                           
+                           </div>
+                           ">
+                    Darren Lynn Bousman
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pixels
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Bicentennial Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Harry Potter and the Sorcerer&#39;s Stone
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Harry Potter and the Chamber of Secrets
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chris Columbus
+                  </td>
+                  <td>
+                    5.3
+                  </td>
+                  <td>
+                    2.9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman v Superman: Dawn of Justice
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Man of Steel
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   300
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Watchmen
+                           </div>
+                           
+                           </div>
+                           ">
+                    Zack Snyder
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    2.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Frighteners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Return of the King
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Fellowship of the Ring
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Two Towers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Alive
+                           </div>
+                           
+                           </div>
+                           ">
+                    Peter Jackson
+                  </td>
+                  <td>
+                    6.3
+                  </td>
+                  <td>
+                    2.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: Apocalypse
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: Days of Future Past
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Usual Suspects
+                           </div>
+                           
+                           </div>
+                           ">
+                    Bryan Singer
+                  </td>
+                  <td>
+                    6.2
+                  </td>
+                  <td>
+                    2.4
+                  </td>
+                </tr>
+                
+                 <a name="screenwriters" style="visibility: hidden"></a>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+             <br>
+        <hr>
+      </div>
+      <br> <br>
+
+      <div class="ui container ">
+        <h2 class="ui header"><i class="write icon"></i>Screenwriters</h2>
+  
+      </div>
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your top rated screenwriters</h2>
+            <table class="ui celled red table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Biutiful
+                           </div>
+                           
+
+                           <div class='item'>
+                        <i class='film icon'></i>   Birdman or (The Unexpected Virtue of Ignorance)
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Revenant
+                           </div>
+                           
+                           </div>
+                           ">
+                    Alejandro González Iñárritu
+                  </td>
+                  <td>
+                    9
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   J.S.A.: Joint Security Area
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Handmaiden
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thirst
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sympathy for Mr. Vengeance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Lady Vengeance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Oldboy
+                           </div>
+                           
+                           </div>
+                           ">
+                    Chan-wook Park
+                  </td>
+                  <td>
+                    8.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Sunshine
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dredd
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   28 Days Later...
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ex Machina
+                           </div>
+                           
+                           </div>
+                           ">
+                    Alex Garland
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Kicked the Hornet's Nest
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl Who Played with Fire
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Girl with the Dragon Tattoo
+                           </div>
+
+                           
+                           </div>
+                           ">
+                    Stieg Larsson
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pi
+                           </div>
+
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fountain
+                           </div>
+                           
+
+                           <div class='item'>
+                        <i class='film icon'></i>   Requiem for a Dream
+                           </div>
+                           
+                           </div>
+                           ">
+                    Darren Aronofsky
+                  </td>
+                  <td>
+                    8.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Zero Theorem
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Imaginarium of Doctor Parnassus
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Brazil
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Life of Brian
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Monty Python and the Holy Grail
+                           </div>
+                           
+                           </div>
+                           ">
+                    Terry Gilliam
+                  </td>
+                  <td>
+                    8.2
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Eyes Wide Shut
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   2001: A Space Odyssey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   A Clockwork Orange
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Shining
+                           </div>
+                           
+                           </div>
+                           ">
+                    Stanley Kubrick
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Memento
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Prestige
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Interstellar
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight Rises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight
+                           </div>
+                           
+                           </div>
+                           ">
+                    Jonathan Nolan
+                  </td>
+                  <td>
+                    8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Return of the Living Dead
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Prometheus
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Aliens
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Alien
+                           </div>
+               
+                           
+                           </div>
+                           ">
+                    Dan O&#39;Bannon
+                  </td>
+                  <td>
+                    7.8
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Brood
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Ringers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Scanners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Naked Lunch
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Crash
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Videodrome
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   eXistenZ
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fly
+                           </div>
+                           
+                           </div>
+                           ">
+                    David Cronenberg
+                  </td>
+                  <td>
+                    7.8
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Your lowest rated screenwriters</h2>
+            <table class="ui celled orange table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw 3D: The Final Chapter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw VI
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw V
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           </div>
+                           ">
+                    Marcus Dunstan
+                  </td>
+                  <td>
+                    3.2
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw 3D: The Final Chapter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw VI
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw V
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Saw IV
+                           </div>
+                           
+                           </div>
+                           ">
+                    Patrick Melton
+                  </td>
+                  <td>
+                    3.2
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four: Rise of the Silver Surfer
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ant-Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Captain America: Civil War
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor: The Dark World
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man
+                           </div>
+                           
+                           </div>
+                           ">
+                    Jack Kirby
+                  </td>
+                  <td>
+                    3.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 1
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Eclipse
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: New Moon
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Twilight
+                           </div>
+                           
+                           </div>
+                           ">
+                    Melissa Rosenberg
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Paranormal Activity: The Marked Ones
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Paranormal Activity 4
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Paranormal Activity 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Paranormal Activity 2
+                           </div>
+                           
+                           </div>
+                           ">
+                    Christopher Landon
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 1
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Eclipse
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: Breaking Dawn - Part 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Twilight Saga: New Moon
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Twilight
+                           </div>
+                           
+                           </div>
+                           ">
+                    Stephenie Meyer
+                  </td>
+                  <td>
+                    4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Incredible Hulk
+                           </div>
+                           
+                
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men: The Last Stand
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   X-Men 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                           </div>
+                           ">
+                    Zak Penn
+                  </td>
+                  <td>
+                    4.4
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four: Rise of the Silver Surfer
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Doctor Strange
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ant-Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor: The Dark World
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man
+                           </div>
+                           
+                           </div>
+                           ">
+                    Stan Lee
+                  </td>
+                  <td>
+                    4.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Seventh Son
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Warcraft
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blood Diamond
+                           </div>
+                           
+                     
+                           
+                           </div>
+                           ">
+                    Charles Leavitt
+                  </td>
+                  <td>
+                    4.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Cabin in the Woods
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                
+                           
+                           </div>
+                           ">
+                    Joss Whedon
+                  </td>
+                  <td>
+                    4.5
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2> Prolific screenwriters</h2>
+            <table class="ui celled yellow table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average rating</th>
+                  <th>Number of films</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   True Romance
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Natural Born Killers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Death Proof
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   From Dusk Till Dawn
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hateful Eight
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kill Bill: Vol. 2
+                           </div>
+                           
+            
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Reservoir Dogs
+                           </div>
+                           
+                   
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Kill Bill: Vol. 1
+                           </div>
+                           
+                 
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Inglourious Basterds
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Django Unchained
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pulp Fiction
+                           </div>
+                           
+                  
+                           
+                           </div>
+                           ">
+                    Quentin Tarantino
+                  </td>
+                  <td>
+                    7.5
+                  </td>
+                  <td>
+                    15
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four: Rise of the Silver Surfer
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Fantastic Four
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Doctor Strange
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Ant-Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor: The Dark World
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 2
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Thor
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Spider-Man
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man 3
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Iron Man
+                           </div>
+                           
+                           </div>
+                           ">
+                    Stan Lee
+                  </td>
+                  <td>
+                    4.5
+                  </td>
+                  <td>
+                    13
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transporter 3
+                           </div>
+                           
+                   
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Transporter 2
+                           </div>
+                           
+                
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Transporter
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Taken 2
+                           </div>
+                           
+                  
+                           <div class='item'>
+                        <i class='film icon'></i>   Lucy
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Fifth Element
+                           </div>
+                           
+            
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Taken
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Léon: The Professional
+                           </div>
+                           
+                           </div>
+                           ">
+                    Luc Besson
+                  </td>
+                  <td>
+                    5.5
+                  </td>
+                  <td>
+                    12
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blade: Trinity
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dark City
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blade II
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Blade
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Jumper
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman v Superman: Dawn of Justice
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Man of Steel
+                           </div>
+                           
+                   
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Batman Begins
+                           </div>
+                           
+                      
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight Rises
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Dark Knight
+                           </div>
+                           
+                           </div>
+                           ">
+                    David S. Goyer
+                  </td>
+                  <td>
+                    6.2
+                  </td>
+                  <td>
+                    12
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Mask of Zorro
+                           </div>
+                           
+                        
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: On Stranger Tides
+                           </div>
+                           
+          
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: At World's End
+                           </div>
+                     
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: Dead Man's Chest
+                           </div>
+                           
+                      
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Pirates of the Caribbean: The Curse of the Black Pearl
+                           </div>
+        
+                           
+                           </div>
+                           ">
+                    Terry Rossio
+                  </td>
+                  <td>
+                    4.8
+                  </td>
+                  <td>
+                    11
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Polarizing screenwriters</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Screenwriter</th>
+                  <th>Average rating</th>
+                  <th>Standard dev.</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Cabin in the Woods
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Avengers: Age of Ultron
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Avengers
+                           </div>
+                           
+                 
+                           
+                           </div>
+                           ">
+                    Joss Whedon
+                  </td>
+                  <td>
+                    4.5
+                  </td>
+                  <td>
+                    3.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Two Towers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Return of the King
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Fellowship of the Ring
+                           </div>
+                           
+                           </div>
+                           ">
+                    J.R.R. Tolkien
+                  </td>
+                  <td>
+                    6
+                  </td>
+                  <td>
+                    2.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Two Towers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Return of the King
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Fellowship of the Ring
+                           </div>
+                           
+                           </div>
+                           ">
+                    Philippa Boyens
+                  </td>
+                  <td>
+                    6
+                  </td>
+                  <td>
+                    2.7
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Frighteners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Alive
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Two Towers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Return of the King
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Fellowship of the Ring
+                           </div>
+                           
+                           </div>
+                           ">
+                    Peter Jackson
+                  </td>
+                  <td>
+                    6.3
+                  </td>
+                  <td>
+                    2.6
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td style="cursor:pointer" class="super" data-html="
+                           <div class='ui divided list'>
+                             <div class='item'>
+    <div class='header'>Filmography</div>
+  </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Frighteners
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   Dead Alive
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: The Desolation of Smaug
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Hobbit: An Unexpected Journey
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Two Towers
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Return of the King
+                           </div>
+                           
+                           <div class='item'>
+                        <i class='film icon'></i>   The Lord of the Rings: The Fellowship of the Ring
+                           </div>
+                           
+                           </div>
+                           ">
+                    Fran Walsh
+                  </td>
+                  <td>
+                    6.3
+                  </td>
+                  <td>
+                    2.6
+                  </td>
+                </tr>
+                
+                 <a name="genres" style="visibility: hidden"></a>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+             <br>
+        <hr>
+      </div>
+      <br><br>
+
+      <div class="ui container ">
+        <h2 class="ui header"><i class="puzzle icon"></i>Genres</h2>
+       
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Top viewed genres</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Percent viewed</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Drama
+                  </td>
+                  <td>
+                    34.6 %
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Action
+                  </td>
+                  <td>
+                    34.3 %
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Adventure
+                  </td>
+                  <td>
+                    27.5 %
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Comedy
+                  </td>
+                  <td>
+                    18 %
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Crime
+                  </td>
+                  <td>
+                    17.2 %
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Top rated genres</h2>
+            <table class="ui celled blue table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Average score</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Animation
+                  </td>
+                  <td>
+                    7.56
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    History
+                  </td>
+                  <td>
+                    7.5
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Drama
+                  </td>
+                  <td>
+                    7.37
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Crime
+                  </td>
+                  <td>
+                    7.3
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Sci_fi
+                  </td>
+                  <td>
+                    7.2
+                  </td>
+                </tr>
+                
+                 <a name="histogram" style="visibility: hidden"></a>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
+      
+      </div>
+
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your rating distribution</h2>
+            <div id="columnchart_values"></div>
+            <h4 class="ui header " style="margin-left: 60px;">Your average rating is 6.5</h4>
+          </div>
+          <div class="eight wide column">
+            <h2>IMDb ratings distribution</h2>
+            <div id="columnchart_values2"></div>
+            <h4 class="ui header" style="margin-left: 60px;">The IMDb average rating is 7.2</h4>
+          </div>
+           <a name="mpaa" style="visibility: hidden"></a>
+        </div>
+        <br>
+        <hr>
+      </div>
+
+
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="low vision icon"></i>MPAA Ratings</h2>
+      
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>MPAA ratings of your films</h2>
+
+
+
+            
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 58.6%;">
+                  R
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 41.4%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  58.6
+                </div>
+              </div>
+
+
+              
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-info" role="progressbar" style="width: 27.1%;">
+                  PG-13
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 72.9%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  27.1
+                </div>
+              </div>
+
+
+              
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 6.1%;">
+                  PG
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 93.9%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  6.1
+                </div>
+              </div>
+
+
+              
+
+
+          </div>
+          <div class="eight wide column">
+            <h2>MPAA ratings of top 10,000 IMDb films</h2>
+
+            
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 47.1%;">
+                  R
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 52.9%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  47.1
+                </div>
+                 <a name="tidbits" style="visibility: hidden"></a>
+              </div>
+
+
+              
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-info" role="progressbar" style="width: 30.8%;">
+                  PG-13
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 69.2%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  30.8
+                </div>
+                 <a name="tidbits" style="visibility: hidden"></a>
+              </div>
+
+
+              
+
+              <div class="progress" style="margin: 3px; height:20px;">
+                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 11.2%;">
+                  PG
+                </div>
+                <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: 88.8%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
+                  11.2
+                </div>
+                 <a name="tidbits" style="visibility: hidden"></a>
+              </div>
+
+
+              
+
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+      <br> <br>
+      <div class="ui container ">
+        <h2 class="ui header"><i class="info icon"></i>Tidbits</h2>
+       
+      </div>
+      <br>
+
+      <div class="ui  padded container segment">
+        <div class="ui statistics">
+          <div class="statistic">
+            <div class="value">
+              <i class="film icon"></i>
+              660
+            </div>
+            <div class="label">
+              Films
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <i class="hourglass full icon"></i>
+              1257
+            </div>
+            <div class="label">
+              hours
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Longest films you've seen</h2>
+            <table class="ui celled teal table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Film</th>
+                  <th>Runtime (minutes)</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    Seven Samurai
+                  </td>
+                  <td>
+                    207
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    The Lord of the Rings: The Return of the King
+                  </td>
+                  <td>
+                    201
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Spartacus
+                  </td>
+                  <td>
+                    197
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Schindler&#39;s List
+                  </td>
+                  <td>
+                    195
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Titanic
+                  </td>
+                  <td>
+                    194
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+          <div class="eight wide column">
+            <h2>Obscure films you've seen</h2>
+            <table class="ui celled olive table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Film</th>
+                  <th>IMDb votes</th>
+                </tr>
+                <tbody>
+              </thead>
+              
+                <tr>
+                  <td>
+                    The Last Minute
+                  </td>
+                  <td>
+                    765
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Webmaster
+                  </td>
+                  <td>
+                    979
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Extraordinary Tales
+                  </td>
+                  <td>
+                    1919
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    Nadja
+                  </td>
+                  <td>
+                    2545
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    They Look Like People
+                  </td>
+                  <td>
+                    3652
+                  </td>
+                </tr>
+                
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <hr>
+      </div>
+      <br><br> <br><br> <br><br>
+    </div>
+  </div>
+
+
+
+
+  <script src="/static/js/results.js"></script>
+
+
+  <script>
+    google.charts.load("current", {
+      packages: ['corechart']
+    });
+
+    google.charts.setOnLoadCallback(drawMYChart);
+    google.charts.setOnLoadCallback(drawIMDBChart);
+
+    function drawMYChart() {
+      var array2 = [["Rating","Ratings",{"role":"style"}],["1",5,"color: #1deac3"],["2",9,"color: #18ebac"],["3",25,"color: #16eba5"],["4",52,"color: #12ed91"],["5",84,"color: #0fee83"],["6",116,"color: #0bee72"],["7",144,"color: #09ef66"],["8",157,"color: #06f05a"],["9",59,"color: #03f14d"],["10",9,"color: #01f144"]]
+
+
+      var data = google.visualization.arrayToDataTable(array2);
+
+      var view = new google.visualization.DataView(data);
+
+
+      var options = {
+        height: 300,
+        bar: {
+          groupWidth: "95%"
+        },
+        legend: {
+          position: "none"
+        },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+    }
+
+    function drawIMDBChart() {
+      var array3 = [["Rating","Ratings",{"role":"style"}],["1",0,"color: #F8CF35"],["",0,"color: #F7CB22"],["2",1,"color: #F6C420"],["",0,"color: #F6BD1F"],["3",0,"color: #F6B71D"],["",0,"color: #F6B01C"],["4",1,"color: #F6AA1A"],["",0,"color: #F6A319"],["5",5,"color: #F69D18"],["",4,"color: #F69616"],["6",36,"color: #F59015"],["",63,"color: #F58913"],["7",131,"color: #F58312"],["",138,"color: #F57C11"],["8",146,"color: #F5760F"],["",97,"color: #F56F0E"],["9",35,"color: #F5690C"],["",3,"color: #F5620B"],["10",0,"color: #F55C0A"]]
+
+
+      var data = google.visualization.arrayToDataTable(array3);
+
+      var view = new google.visualization.DataView(data);
+
+
+      var options = {
+        height: 300,
+        bar: {
+          groupWidth: "95%"
+        },
+        legend: {
+          position: "none"
+        },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+      chart.draw(view, options);
+    }
+  </script>
+</body>

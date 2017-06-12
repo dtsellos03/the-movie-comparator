@@ -47,7 +47,7 @@ app.set("view engine", "ejs");
 var chat = io.of("/socket").on('connection', onSocketConnected);
 
 function onSocketConnected(socket) {
-    console.log("connected :" + socket.id);
+  //  console.log("connected :" + socket.id);
 }
 
 
@@ -124,7 +124,7 @@ function Middleware(filepath, res) {
                         request(url, function(error, response, body) {
                             //console.log(error)
                             if (!error) {
-                                console.log("Count is" + key)
+                                //console.log("Count is" + key)
                                 try {
                                     movie["Actors"] = JSON.parse(body)["Actors"];
                                     movie["Rated"] = JSON.parse(body)["Rated"];

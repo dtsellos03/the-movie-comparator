@@ -18,14 +18,14 @@ module.exports =
             imdbscores.push(Number(element["IMDb Rating"]))
         })
 
-        console.log(myscores)
-        console.log(imdbscores)
+       // console.log(myscores)
+       // console.log(imdbscores)
 
         var MySum = myscores.reduce((a, b) => a + b, 0);
-        console.log(MySum + "IS THE SUM")
+        //console.log(MySum + "IS THE SUM")
         var MyAverage = Round1(MySum / myscores.length);
         var IMDBSum = imdbscores.reduce((a, b) => a + b, 0);
-        console.log(IMDBSum + "IS THE IMDBSUM")
+        //console.log(IMDBSum + "IS THE IMDBSUM")
         var IMDBAverage = Round1(IMDBSum / imdbscores.length);
 
 
@@ -76,7 +76,7 @@ module.exports =
             ['10', IMDBDistribution[17].length, 'color: #F55C0A']
         ]
 
-        console.log(MyScoreObject)
+        //console.log(MyScoreObject)
             //   console.log(IMDBScoreObject)
 
         var Histograms = {

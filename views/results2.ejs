@@ -16,7 +16,7 @@
 
 
   <div id="teste" style="display: none;">
-    
+   
     
              <div class="ui small modal info">
 
@@ -36,26 +36,27 @@
   </div>
 </div>
 
-    
+      <a name="polarizing" style="visibility: hidden"></a>
     
     
     <div class="ui container ">
       <br><br>
       <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
       <hr>
+     
       <div class="ui sticky" style="background-color: white;">
+        
         <div style="background-color: white; height: 10px;"></div>
         <div class="ui fluid eight item menu" id="dog">
            
-          <a href="#p55" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
-          
-          <a class="item"><i class="users icon"></i>Actors</a>
-          <a class="item"><i class="user icon"></i>Directors</a>
-          <a class="item"><i class="write icon"></i>Screenwriters</a>
-          <a class="item"><i class="puzzle icon"></i>Genres</a>
-          <a class="item"><i class="bar chart icon"></i>Histogram</a>
-          <a class="item"><i class="low vision icon"></i>MPAA</a>
-          <a class="item"><i class="info icon"></i>Tidbits</a>
+          <a href="#polarizing" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
+          <a href="#actors" class="item"><i class="users icon"></i>Actors</a>
+          <a href="#directors" class="item"><i class="user icon"></i>Directors</a>
+          <a href="#screenwriters" class="item"><i class="write icon"></i>Screenwriters</a>
+          <a href="#genres" class="item"><i class="puzzle icon"></i>Genres</a>
+          <a href="#histogram" class="item"><i class="bar chart icon"></i>Histogram</a>
+          <a href="#mpaa" class="item"><i class="low vision icon"></i>MPAA</a>
+          <a href="#tidbits" class="item"><i class="info icon"></i>Tidbits</a>
 
         </div>
         <div>
@@ -80,7 +81,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2>You loved, critics hated</h2>
-            <table class="ui celled olive table" style="width: 100%;">
+            <table class="ui celled red table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Movie</th>
@@ -107,7 +108,7 @@
           </div>
           <div class="eight wide column">
             <h2>You hated, critics loved</h2>
-            <table class="ui celled teal table" style="width: 100%;">
+            <table class="ui celled orange table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Movie</th>
@@ -166,7 +167,7 @@
           </div>
           <div class="eight wide column">
             <h2>You hated, IMDb loved</h2>
-            <table class="ui celled orange table" style="width: 100%;">
+            <table class="ui celled olive table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Movie</th>
@@ -188,10 +189,15 @@
                   </td>
                 </tr>
                 <% }); %>
+               
                   </tbody>
+                    <a name="actors" style="visibility: hidden"></a>
             </table>
+            
           </div>
         </div>
+             <br>
+        <hr>
       </div>
       <br>
       <br>
@@ -204,7 +210,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2>Your top rated actors</h2>
-            <table class="ui celled blue table" style="width: 100%;">
+            <table class="ui celled green table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Actor</th>
@@ -238,7 +244,7 @@
           </div>
           <div class="eight wide column">
             <h2>Your lowest rated actors</h2>
-            <table class="ui celled violet table" style="width: 100%;">
+            <table class="ui celled teal table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Actor</th>
@@ -276,7 +282,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2> Prolific actors</h2>
-            <table class="ui celled green table" style="width: 100%;">
+            <table class="ui celled blue table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Actor</th>
@@ -314,7 +320,7 @@
           </div>
           <div class="eight wide column">
             <h2>Polarizing actors</h2>
-            <table class="ui celled pink table" style="width: 100%;">
+            <table class="ui celled violet table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Actor</th>
@@ -347,10 +353,13 @@
                   </td>
                 </tr>
                 <% }); %>
+                    <a name="directors" style="visibility: hidden"></a>
                   </tbody>
             </table>
           </div>
         </div>
+             <br>
+        <hr>
       </div>
       <br>
       <br>
@@ -363,7 +372,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2>Your top rated directors</h2>
-            <table class="ui celled blue table" style="width: 100%;">
+            <table class="ui celled purple table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Director</th>
@@ -397,7 +406,7 @@
           </div>
           <div class="eight wide column">
             <h2>Your lowest rated directors</h2>
-            <table class="ui celled violet table" style="width: 100%;">
+            <table class="ui celled pink table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Director</th>
@@ -435,7 +444,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2> Prolific directors</h2>
-            <table class="ui celled green table" style="width: 100%;">
+            <table class="ui celled violet table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Director</th>
@@ -473,7 +482,7 @@
           </div>
           <div class="eight wide column">
             <h2>Polarizing directors</h2>
-            <table class="ui celled pink table" style="width: 100%;">
+            <table class="ui celled blue table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Director</th>
@@ -506,10 +515,13 @@
                   </td>
                 </tr>
                 <% }); %>
+                 <a name="screenwriters" style="visibility: hidden"></a>
                   </tbody>
             </table>
           </div>
         </div>
+             <br>
+        <hr>
       </div>
       <br> <br>
 
@@ -522,7 +534,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2>Your top rated screenwriters</h2>
-            <table class="ui celled blue table" style="width: 100%;">
+            <table class="ui celled red table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Screenwriter</th>
@@ -556,7 +568,7 @@
           </div>
           <div class="eight wide column">
             <h2>Your lowest rated screenwriters</h2>
-            <table class="ui celled violet table" style="width: 100%;">
+            <table class="ui celled orange table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Screenwriter</th>
@@ -594,7 +606,7 @@
         <div class="ui grid ">
           <div class="eight wide column">
             <h2> Prolific screenwriters</h2>
-            <table class="ui celled green table" style="width: 100%;">
+            <table class="ui celled yellow table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Screenwriter</th>
@@ -632,7 +644,7 @@
           </div>
           <div class="eight wide column">
             <h2>Polarizing screenwriters</h2>
-            <table class="ui celled pink table" style="width: 100%;">
+            <table class="ui celled olive table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Screenwriter</th>
@@ -665,10 +677,13 @@
                   </td>
                 </tr>
                 <% }); %>
+                 <a name="genres" style="visibility: hidden"></a>
                   </tbody>
             </table>
           </div>
         </div>
+             <br>
+        <hr>
       </div>
       <br><br>
 
@@ -706,7 +721,7 @@
           </div>
           <div class="eight wide column">
             <h2>Top rated genres</h2>
-            <table class="ui celled olive table" style="width: 100%;">
+            <table class="ui celled blue table" style="width: 100%;">
               <thead>
                 <tr>
                   <th>Genre</th>
@@ -724,6 +739,7 @@
                   </td>
                 </tr>
                 <% }); %>
+                 <a name="histogram" style="visibility: hidden"></a>
                   </tbody>
             </table>
           </div>
@@ -751,6 +767,7 @@
             <div id="columnchart_values2"></div>
             <h4 class="ui header" style="margin-left: 60px;">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
           </div>
+           <a name="mpaa" style="visibility: hidden"></a>
         </div>
         <br>
         <hr>
@@ -800,6 +817,7 @@
                 <div class="progress-bar" role="progressbar" style="text-align: left; padding-left: 10px; width: <%= 100-element.percent%>%; margin: 0; color: black; background-color:rgba(0,0,0,0);">
                   <%= element.percent %>
                 </div>
+                 <a name="tidbits" style="visibility: hidden"></a>
               </div>
 
 
@@ -890,6 +908,7 @@
         <br>
         <hr>
       </div>
+      <br><br> <br><br> <br><br>
     </div>
   </div>
 
