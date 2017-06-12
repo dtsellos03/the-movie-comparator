@@ -1,5 +1,5 @@
 
-  var socket = io.connect('https://imdb-comparator-dtsellos03.c9users.io/');
+  var socket = io.connect('https://filmscomparator.herokuapp.com/');
   socket.on('connect', function(){});
   socket.on('message', function(data){
       console.log(data+"%")
