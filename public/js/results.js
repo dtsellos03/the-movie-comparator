@@ -4,7 +4,7 @@
     
     
     
-      $('.super').popup({
+      $('.filmography').popup({
           on: 'click',
           position: 'top left'
       });;

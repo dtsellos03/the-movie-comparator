@@ -39,25 +39,25 @@
       <a name="polarizing" style="visibility: hidden"></a>
     
     
-    <div class="ui container ">
+<div class="ui container">
       <br><br>
-      <h1 class="ui huge header"><i class="film icon"></i>Results</h1>
+      <h1 class="ui huge header"><i class="film icon"></i>Sample results</h1>
       <hr>
-     
-      <div class="ui sticky" style="background-color: white;">
+  </div> 
+  <div class="ui container" style="width: 70%">
+      <div class="ui sticky" style="background-color: white; width: 10%;">
         
         <div style="background-color: white; height: 10px;"></div>
         <div class="ui fluid eight item menu" id="dog">
-           
+           <a href="#histogram" class="item"><i class="bar chart icon"></i>Histogram</a>
           <a href="#polarizing" class="item" href="#chapter4"><i class="law icon"></i>Polarizing</a>
           <a href="#actors" class="item"><i class="users icon"></i>Actors</a>
           <a href="#directors" class="item"><i class="user icon"></i>Directors</a>
           <a href="#screenwriters" class="item"><i class="write icon"></i>Screenwriters</a>
           <a href="#genres" class="item"><i class="puzzle icon"></i>Genres</a>
-          <a href="#histogram" class="item"><i class="bar chart icon"></i>Histogram</a>
+
           <a href="#mpaa" class="item"><i class="low vision icon"></i>MPAA</a>
           <a href="#tidbits" class="item"><i class="info icon"></i>Tidbits</a>
-
         </div>
         <div>
           <div style="background-color: white; height: 20px;">
@@ -67,10 +67,40 @@
         </div>
 
       </div>
+      
 
     </div>
     <div id="example1">
       <br> <br> <br>
+      
+      
+       <div class="ui container ">
+        <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
+      
+      </div>
+
+      <br>
+      <div class="ui  padded container segment">
+        <div class="ui grid ">
+          <div class="eight wide column">
+            <h2>Your rating distribution</h2>
+            <div id="columnchart_values"></div>
+            <h4 class="ui header " style="margin-left: 60px;">Your average rating is <%=ReturnObj.Histogram.MyAverage%></h4>
+          </div>
+          <div class="eight wide column">
+            <h2>IMDb ratings distribution</h2>
+            <div id="columnchart_values2"></div>
+            <h4 class="ui header" style="margin-left: 60px;">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
+          </div>
+           <a name="mpaa" style="visibility: hidden"></a>
+        </div>
+        <br>
+        <hr>
+      </div>
+      <br><br>
+      
+      
+      
 
       <div class="ui container ">
         <h2 class="ui header "><i class="law icon"></i>Polarizing films</h2>
@@ -220,7 +250,7 @@
               </thead>
               <% ReturnObj.Actors.TopActors.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -254,7 +284,7 @@
               </thead>
               <% ReturnObj.Actors.WorstActors.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -293,7 +323,7 @@
               </thead>
               <% ReturnObj.Actors.MostProlific.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
                                <div class='header'>Filmography</div>
@@ -331,7 +361,7 @@
               </thead>
               <% ReturnObj.Actors.MostControversial.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -382,7 +412,7 @@
               </thead>
               <% ReturnObj.Directors.TopDirectors.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -416,7 +446,7 @@
               </thead>
               <% ReturnObj.Directors.WorstDirectors.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -455,7 +485,7 @@
               </thead>
               <% ReturnObj.Directors.MostProlific.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -493,7 +523,7 @@
               </thead>
               <% ReturnObj.Directors.MostControversial.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -544,7 +574,7 @@
               </thead>
               <% ReturnObj.Writers.TopWriters.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -578,7 +608,7 @@
               </thead>
               <% ReturnObj.Writers.WorstWriters.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -617,7 +647,7 @@
               </thead>
               <% ReturnObj.Writers.MostProlific.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -655,7 +685,7 @@
               </thead>
               <% ReturnObj.Writers.MostControversial.forEach(function(element){ %>
                 <tr>
-                  <td style="cursor:pointer" class="super" data-html="
+                  <td class="tdrow filmography" data-html="
                            <div class='ui divided list'>
                              <div class='item'>
     <div class='header'>Filmography</div>
@@ -747,32 +777,6 @@
         <br>
         <hr>
       </div>
-
-      <br> <br>
-      <div class="ui container ">
-        <h2 class="ui header"><i class="bar chart icon"></i>Ratings distribution</h2>
-      
-      </div>
-
-      <br>
-      <div class="ui  padded container segment">
-        <div class="ui grid ">
-          <div class="eight wide column">
-            <h2>Your rating distribution</h2>
-            <div id="columnchart_values"></div>
-            <h4 class="ui header " style="margin-left: 60px;">Your average rating is <%=ReturnObj.Histogram.MyAverage%></h4>
-          </div>
-          <div class="eight wide column">
-            <h2>IMDb ratings distribution</h2>
-            <div id="columnchart_values2"></div>
-            <h4 class="ui header" style="margin-left: 60px;">The IMDb average rating is <%=ReturnObj.Histogram.IMDBAverage%></h4>
-          </div>
-           <a name="mpaa" style="visibility: hidden"></a>
-        </div>
-        <br>
-        <hr>
-      </div>
-
 
       <br> <br>
       <div class="ui container ">

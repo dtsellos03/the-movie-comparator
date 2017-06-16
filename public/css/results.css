@@ -14,21 +14,12 @@ body {
     background-color: #d9e6fc;
     color: black;
 }
-td:hover {
+
+.tdrow:hover {
     color: #0099ff;
+    cursor: pointer;
 }
+
 i {
     color: #38455b;
-}
-
-
-
-.progress-bar:nth-of-type(2) {
-    background: red;
-    color: red;
-}
-
-.progress-bar:nth-of-type(3) {
-    background: blue;
-    color: blue;
 }
