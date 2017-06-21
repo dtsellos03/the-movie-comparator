@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
-<div class="ui segment">
-    <h1 class="ui header huge">Uh oh! An error has occured</h1>
-    <h2 class="ui header">This could be due to:</h2>
+<div class="ui segment" style="padding: 100px;">
+    <h1 class="ui header huge">Uh oh! An error has occured.</h1>
+    <h4 class="ui header">This could be due to:</h4>
     <ul>
         <li>Not uploading a valid ratings.csv file (please double check that the correct file was uploaded)</li>
         <li>Server timeout (please try again in a few minutes)</li>
@@ -10,11 +10,14 @@
    <% if(err) { %>
     <%= err %>
  <% }; %>
+ 
+ <
+ 
  <div>
-     
-      <a class="ui primary huge button"  href="/">Back to homepage</a>
+     <br><br>
+      <a class="ui huge button"  href="/">Back to homepage</a>
  </div>
 
-    
+    <br><br>
 
 </div>

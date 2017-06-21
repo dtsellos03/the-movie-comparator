@@ -115,6 +115,9 @@ function Middleware(filepath, res) {
                 var count = 0;
                 console.time('API call')
                 var totalNumber = obj.length;
+                setTimeout(function() {
+  res.render("error", {err: "Server timeout. Please try again."})
+}, 15000);
                 async.forEachOfLimit(obj, 20, function(value, key, callback) {
                         //console.log("Position is "+obj[key].position)
                         var url = 'http://www.omdbapi.com/?i=' + obj[key].const+'&apikey=9849809a';

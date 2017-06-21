@@ -1,5 +1,5 @@
 
-  var socket = io.connect('https://filmscomparator.herokuapp.com/');
+  var socket = io.connect(window.location.href );
   socket.on('connect', function(){});
   socket.on('message', function(data){
       console.log(data+"%")
