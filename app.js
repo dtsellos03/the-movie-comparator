@@ -89,6 +89,7 @@ server.listen(process.env.PORT, process.env.IP, function() {
     console.log("Server started!");
 });
 
+module.exports = app;
 
 function Middleware(filepath, res) {
 
