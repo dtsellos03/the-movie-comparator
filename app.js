@@ -1,12 +1,9 @@
 var express = require("express");
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
 var bodyParser = require("body-parser");
-var async = require('async');
-var request = require('request');
-
 var path = require('path');
+var fs = require('fs');
 var multer = require('multer');
 var Middleware = require('./middleware');
 
@@ -31,11 +28,6 @@ var upload = multer({
 app.use(bodyParser.json());
 app.use('/static', express.static('public'))
 app.set("view engine", "ejs");
-
-
-app.get("/home", function(req, res) {
-    res.render("landing");
-});
 
 app.get("/", function(req, res) {
     res.render("landing");
