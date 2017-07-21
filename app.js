@@ -12,9 +12,6 @@ var multer = require('multer')
 const crypto = require('crypto');
 const csv = require('csvtojson')
 
-
-
-
 var storage = multer.diskStorage({
     destination: './uploads/',
     filename: function(req, file, cb) {
@@ -38,7 +35,8 @@ var PolarizingAnalysis = require('./processing_functions/polarizinganalysis.js')
 var RatingsAnalysis = require('./processing_functions/ratingsanalysis.js');
 var DirectorsAnalysis = require('./processing_functions/directorsanalysis.js');
 var WritersAnalysis = require('./processing_functions/writersanalysis.js');
-var TidbitsAnalysis = require('./processing_functions/tidbits.js')
+var TidbitsAnalysis = require('./processing_functions/tidbits.js');
+var IMDBRatings = require('./processing_functions/imdbMPAA.js');
 
 
 app.use(bodyParser.json());
@@ -69,19 +67,15 @@ app.post('/home/upload', upload.single('avatar'), function(req, res, next) {
             fs.unlink('/uploads/' + filepath, (err) => {
                 if (err) throw err;
             });
-            res.render("error", {
-                err: "Please upload a valid .csv file"
-            })
-            return null
+            renderError(res, "Please upload a valid .csv file");
+            return null;
         }
 
-        Middleware(filepath, res)
+        Middleware(filepath, res, function(returnObj){
+            /// render route
+        });
 
-    },
-    function(req, res, next) {
-
-
-    })
+    });
 
 
 server.listen(process.env.PORT, process.env.IP, function() {
@@ -90,7 +84,7 @@ server.listen(process.env.PORT, process.env.IP, function() {
 
 module.exports = app;
 
-function Middleware(filepath, res) {
+function Middleware(filepath, res, callback) {
 
 
     // Converting CSV to JSON  
@@ -113,27 +107,14 @@ function Middleware(filepath, res) {
             fs.readFile(JSONfile, handleFile)
         }
         catch (err) {
-
-
-            if (res.headersSent == false) {
-                res.render("error", {
-                    err: err
-                })
-            }
+            renderError(res, err)
         }
 
         // Processing functions on JSON file
 
         function handleFile(err, data) {
             if (err) {
-                try {
-                    res.render("error");
-                }
-                catch (err) {
-
-                    return null
-                }
-
+                renderError(res, err)
             }
             try {
                 fs.unlink(JSONfile, (err) => {
@@ -150,13 +131,8 @@ function Middleware(filepath, res) {
                 // Timeout after 15 seconds if API calls don't complete
 
                 setTimeout(function() {
-
-
-                    if (res.headersSent == false) {
-                        res.render("error", {
-                            err: "Server timeout. Please try again."
-                        })
-                    }
+                    
+                   renderError(res, "Server timeout. Please try again.")
 
                 }, 15000);
 
@@ -169,8 +145,10 @@ function Middleware(filepath, res) {
 
                         var url = 'http://www.omdbapi.com/?i=' + filteredMovies[key].const+'&apikey=9849809a';
                         var movie = filteredMovies[key]
+                        
+                        var options= { url: url, timeout: 4000 }
 
-                        request(url, function(error, response, body) {
+                        request(options, function(error, response, body) {
 
                             if (!error) {
 
@@ -191,18 +169,14 @@ function Middleware(filepath, res) {
 
                                     // Emit progress of API calls to client side
 
-                                    percent = Math.floor((count / totalNumber) * 100)
+                                    percent = Math.floor((count / totalNumber) * 100);
+                                    
                                     io.sockets.emit('message', percent);
 
 
                                 }
                                 catch (err) {
-
-                                    if (res.headersSent == false) {
-                                        res.render("error", {
-                                            err: err
-                                        })
-                                    }
+                                    renderError(res, err)
                                     return null
                                 }
                             }
@@ -212,6 +186,9 @@ function Middleware(filepath, res) {
 
                     },
                     function(err) {
+                        
+                        console.log(count)
+                        console.log(movieLength)
 
                         if (err) {
                             console.log(err)
@@ -227,25 +204,6 @@ function Middleware(filepath, res) {
                         var Directors = DirectorsAnalysis(filteredMovies);
                         var Tidbits = TidbitsAnalysis(filteredMovies);
                         var Writers = WritersAnalysis(filteredMovies);
-                        var IMDBRatings = [{
-                            rating: 'R',
-                            percent: 47.1,
-                            class: "progress-bar-success"
-                        }, {
-                            rating: 'PG-13',
-                            percent: 30.8,
-                            class: "progress-bar-info"
-                        }, {
-                            rating: 'PG',
-                            percent: 11.2,
-                            class: "progress-bar-warning"
-                        }, {
-                            rating: 'G',
-                            percent: 1.8
-                        }, {
-                            rating: 'NC-17',
-                            percent: 0.2
-                        }].slice(0, 3)
 
                         var ReturnObj = {
                             Actors: Actors,
@@ -269,13 +227,17 @@ function Middleware(filepath, res) {
                 );
             }
             catch (err) {
-                if (res.headersSent == false) {
-                    res.render("error", {
-                        err: err
-                    })
-                }
+                renderError(res, err)
                 return null
             }
         }
     });
 };
+
+            function renderError(res, err) {
+                if (res.headersSent == false) {
+                    res.render("error", {
+                        err: err
+                    })
+                }
+            }
