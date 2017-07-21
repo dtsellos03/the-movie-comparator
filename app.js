@@ -61,21 +61,21 @@ app.get('*', function(req, res) {
 });
 
 app.post('/home/upload', upload.single('avatar'), function(req, res, next) {
-        var filepath = req.file.filename
-        console.log(filepath.split('.').pop())
-        if (filepath.split('.').pop() != 'csv') {
-            fs.unlink('/uploads/' + filepath, (err) => {
-                if (err) throw err;
-            });
-            renderError(res, "Please upload a valid .csv file");
-            return null;
-        }
-
-        Middleware(filepath, res, function(returnObj){
-            /// render route
+    var filepath = req.file.filename
+    console.log(filepath.split('.').pop())
+    if (filepath.split('.').pop() != 'csv') {
+        fs.unlink('/uploads/' + filepath, (err) => {
+            if (err) throw err;
         });
+        renderError(res, "Please upload a valid .csv file");
+        return null;
+    }
 
+    Middleware(filepath, res, function(returnObj) {
+        /// render route
     });
+
+});
 
 
 server.listen(process.env.PORT, process.env.IP, function() {
@@ -86,7 +86,6 @@ module.exports = app;
 
 function Middleware(filepath, res, callback) {
 
-
     // Converting CSV to JSON  
 
     var fullpath = "uploads/" + filepath
@@ -95,7 +94,7 @@ function Middleware(filepath, res, callback) {
     const csvFilePath = fullpath
     csv({
         toArrayString: true
-    }).fromFile(csvFilePath).pipe(writeStream)
+    }).fromFile(csvFilePath).pipe(writeStream);
     writeStream.on('finish', function() {
         fs.unlink(fullpath, (err) => {
             if (err) throw err;
@@ -131,8 +130,8 @@ function Middleware(filepath, res, callback) {
                 // Timeout after 15 seconds if API calls don't complete
 
                 setTimeout(function() {
-                    
-                   renderError(res, "Server timeout. Please try again.")
+
+                    renderError(res, "Server timeout. Please try again.")
 
                 }, 15000);
 
@@ -145,8 +144,11 @@ function Middleware(filepath, res, callback) {
 
                         var url = 'http://www.omdbapi.com/?i=' + filteredMovies[key].const+'&apikey=9849809a';
                         var movie = filteredMovies[key]
-                        
-                        var options= { url: url, timeout: 4000 }
+
+                        var options = {
+                            url: url,
+                            timeout: 4000
+                        }
 
                         request(options, function(error, response, body) {
 
@@ -161,7 +163,6 @@ function Middleware(filepath, res, callback) {
                                     JSON.parse(body).Ratings.forEach(function(element) {
                                         if (element.Source === 'Metacritic') {
                                             movie['Metacritic'] = element.Value
-
                                         }
                                     })
 
@@ -170,7 +171,7 @@ function Middleware(filepath, res, callback) {
                                     // Emit progress of API calls to client side
 
                                     percent = Math.floor((count / totalNumber) * 100);
-                                    
+
                                     io.sockets.emit('message', percent);
 
 
@@ -186,7 +187,7 @@ function Middleware(filepath, res, callback) {
 
                     },
                     function(err) {
-                        
+
                         console.log(count)
                         console.log(movieLength)
 
@@ -234,10 +235,10 @@ function Middleware(filepath, res, callback) {
     });
 };
 
-            function renderError(res, err) {
-                if (res.headersSent == false) {
-                    res.render("error", {
-                        err: err
-                    })
-                }
-            }
+function renderError(res, err) {
+    if (res.headersSent == false) {
+        res.render("error", {
+            err: err
+        })
+    }
+}
