@@ -78,7 +78,7 @@ app.post('/home/upload', upload.single('avatar'), function(req, res, next) {
 });
 
 
-server.listen(process.env.PORT, process.env.IP, function() {
+server.listen(8000, process.env.IP, function() {
     console.log("Server started!");
 });
 
